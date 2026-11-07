@@ -1,0 +1,384 @@
+:root {
+    --primary: #1e3a8a;
+    --primary-light: #3b82f6;
+    --secondary: #0284c7;
+    --accent: #f59e0b;
+    --bg-main: #f8fafc;
+    --bg-card: #ffffff;
+    --text-main: #1e293b;
+    --text-muted: #64748b;
+    --border: #e2e8f0;
+    --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.05);
+    --radius: 14px;
+    --split-bg: #f0fdf4;
+    --split-border: #bbf7d0;
+    --hotel-bg: #fff7ed;
+    --hotel-border: #fed7aa;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Assistant', system-ui, -apple-system, sans-serif;
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    line-height: 1.6;
+    padding-bottom: 80px;
+}
+
+.app-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 12px;
+}
+
+.header {
+    background: linear-gradient(135deg, var(--primary) 0%, #0f172a 100%);
+    color: white;
+    padding: 24px 16px;
+    text-align: center;
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+    margin-bottom: 16px;
+}
+
+.header h1 {
+    font-size: 1.6rem;
+    margin-bottom: 6px;
+    font-weight: 700;
+}
+
+.header p {
+    font-size: 0.95rem;
+    opacity: 0.9;
+}
+
+/* App Tabs Bar */
+.nav-tabs {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding: 4px 2px 12px 2px;
+    margin-bottom: 16px;
+    scrollbar-width: none;
+}
+
+.nav-tabs::-webkit-scrollbar {
+    display: none;
+}
+
+.tab-btn {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border);
+    padding: 8px 14px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-main);
+    white-space: nowrap;
+    transition: all 0.2s ease;
+    box-shadow: var(--shadow);
+}
+
+.tab-btn.active {
+    background-color: var(--primary);
+    color: white;
+    border-color: var(--primary);
+}
+
+/* Cards */
+.section-card {
+    background-color: var(--bg-card);
+    border-radius: var(--radius);
+    padding: 16px;
+    margin-bottom: 16px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+    display: none;
+}
+
+.section-card.active-section {
+    display: block;
+}
+
+.section-title {
+    font-size: 1.2rem;
+    color: var(--primary);
+    margin-bottom: 14px;
+    border-bottom: 2px solid #eff6ff;
+    padding-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 700;
+}
+
+/* Timeline / Time Blocks */
+.day-timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.timeline-item {
+    display: flex;
+    gap: 12px;
+    padding-bottom: 10px;
+    border-bottom: 1px dashed var(--border);
+}
+
+.timeline-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.timeline-time {
+    font-weight: 700;
+    color: var(--secondary);
+    min-width: 80px;
+    font-size: 0.95rem;
+}
+
+.timeline-content {
+    flex: 1;
+    font-size: 0.95rem;
+}
+
+/* Interactive Attraction Links inside Itinerary */
+.attr-link-tag {
+    color: var(--primary-light);
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: underline;
+    background: #eff6ff;
+    padding: 2px 6px;
+    border-radius: 4px;
+    display: inline-block;
+    margin: 1px 0;
+}
+.attr-link-tag:hover {
+    background: var(--primary-light);
+    color: white;
+}
+
+/* Split Boxes & Hotel Boxes */
+.split-box {
+    background-color: var(--split-bg);
+    border: 1px solid var(--split-border);
+    border-right: 4px solid #22c55e;
+    padding: 10px 12px;
+    border-radius: 8px;
+    margin-top: 8px;
+    font-size: 0.9rem;
+}
+
+.split-box.blue {
+    background-color: #f0f9ff;
+    border-right: 4px solid var(--secondary);
+    border-color: #bae6fd;
+}
+
+.hotel-box {
+    background-color: var(--hotel-bg);
+    border: 1px solid var(--hotel-border);
+    border-radius: 8px;
+    padding: 12px;
+    margin-top: 10px;
+    border-right: 4px solid var(--accent);
+}
+
+.hotel-title {
+    font-weight: bold;
+    color: #c2410c;
+    margin-bottom: 6px;
+    font-size: 0.95rem;
+}
+
+.flight-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #f8fafc;
+    padding: 10px 12px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    border: 1px solid var(--border);
+    font-size: 0.9rem;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.info-item {
+    background-color: #f8fafc;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px;
+    font-size: 0.9rem;
+}
+
+.info-item h4 {
+    color: var(--primary);
+    margin-bottom: 4px;
+    font-size: 0.95rem;
+}
+
+/* Rich Attraction Cards with Images & Expandable Description */
+.attractions-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.attraction-card {
+    background-color: #f8fafc;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.2s ease;
+}
+
+.attraction-card.highlight {
+    border-color: var(--accent);
+    box-shadow: 0 0 10px rgba(245, 158, 11, 0.4);
+}
+
+.attraction-img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+}
+
+.attraction-body {
+    padding: 12px;
+}
+
+.attraction-header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 6px;
+}
+
+.attraction-title {
+    font-weight: 700;
+    color: #0f172a;
+    font-size: 1.05rem;
+}
+
+.btn-maps {
+    background-color: #22c55e;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 16px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.attraction-snippet {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+}
+
+.attraction-details {
+    display: none;
+    font-size: 0.9rem;
+    color: var(--text-main);
+    background: #ffffff;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px dashed var(--border);
+    margin-top: 8px;
+    line-height: 1.5;
+}
+
+.toggle-details-btn {
+    background: none;
+    border: none;
+    color: var(--secondary);
+    font-weight: 600;
+    font-size: 0.85rem;
+    cursor: pointer;
+    padding: 2px 0;
+    font-family: 'Assistant', sans-serif;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.checkbox-container input {
+    margin-top: 4px;
+    width: 16px;
+    height: 16px;
+    accent-color: var(--primary);
+}
+
+.badge {
+    display: inline-block;
+    background-color: var(--accent);
+    color: white;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-right: 4px;
+}
+
+/* Bottom App Navigation Bar */
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--bg-card);
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-around;
+    padding: 8px 4px;
+    box-shadow: 0 -4px 6px -1px rgb(0 0 0 / 0.05);
+    z-index: 1000;
+}
+
+.bottom-nav-btn {
+    background: none;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Assistant', sans-serif;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    cursor: pointer;
+    gap: 2px;
+    padding: 4px 8px;
+    border-radius: 8px;
+}
+
+.bottom-nav-btn.active {
+    color: var(--primary);
+    font-weight: 700;
+    background-color: #eff6ff;
+}
+
+.bottom-nav-btn span.icon {
+    font-size: 1.2rem;
+}
