@@ -65,7 +65,6 @@
             opacity: 0.9;
         }
 
-        /* Top Navigation Tabs (General pages: Flights, Shabbat, Attractions) */
         .nav-tabs {
             display: flex;
             gap: 8px;
@@ -82,7 +81,7 @@
         .tab-btn {
             background-color: var(--bg-card);
             border: 1px solid var(--border);
-            padding: 8px 16px;
+            padding: 8px 14px;
             border-radius: 20px;
             cursor: pointer;
             font-size: 0.9rem;
@@ -340,7 +339,6 @@
             margin-right: 4px;
         }
 
-        /* Bottom Navigation Bar (Dedicated exclusively to Days 1-7) */
         .bottom-nav {
             position: fixed;
             bottom: 0;
@@ -350,10 +348,9 @@
             border-top: 1px solid var(--border);
             display: flex;
             justify-content: space-around;
-            padding: 8px 2px;
+            padding: 8px 4px;
             box-shadow: 0 -4px 6px -1px rgb(0 0 0 / 0.05);
             z-index: 1000;
-            overflow-x: auto;
         }
 
         .bottom-nav-btn {
@@ -363,13 +360,12 @@
             flex-direction: column;
             align-items: center;
             font-family: 'Assistant', sans-serif;
-            font-size: 0.75rem;
+            font-size: 0.8rem;
             color: var(--text-muted);
             cursor: pointer;
             gap: 2px;
-            padding: 4px 6px;
+            padding: 4px 8px;
             border-radius: 8px;
-            white-space: nowrap;
         }
 
         .bottom-nav-btn.active {
@@ -379,7 +375,7 @@
         }
 
         .bottom-nav-btn span.icon {
-            font-size: 1.1rem;
+            font-size: 1.2rem;
         }
     </style>
 </head>
@@ -391,9 +387,15 @@
             <p style="margin-top: 4px; font-size: 0.85rem; opacity: 0.85;">PNR הזמנת טיסה: <strong>9XO92L</strong></p>
         </div>
 
-        <!-- Top Navigation Tabs: General info pages -->
         <div class="nav-tabs" id="top-tabs">
             <button class="tab-btn active" onclick="switchSection('flights-sec')">✈️ טיסות וכבודה</button>
+            <button class="tab-btn" onclick="switchSection('day1')">שלישי 10.11</button>
+            <button class="tab-btn" onclick="switchSection('day2')">רביעי 11.11</button>
+            <button class="tab-btn" onclick="switchSection('day3')">חמישי 12.11</button>
+            <button class="tab-btn" onclick="switchSection('day4')">שישי 13.11</button>
+            <button class="tab-btn" onclick="switchSection('day5')">שבת 14.11</button>
+            <button class="tab-btn" onclick="switchSection('day6')">ראשון 15.11</button>
+            <button class="tab-btn" onclick="switchSection('day7')">שני 16.11</button>
             <button class="tab-btn" onclick="switchSection('shabbat-sec')">🕌 שבת וכשרות</button>
             <button class="tab-btn" onclick="switchSection('links-sec')">📍 אטרקציות וניווט</button>
         </div>
@@ -538,7 +540,7 @@
             <p>🔹 <strong>מפתח מכני לשבת:</strong> מומלץ לבקש מראש בקבלה של מלון WB.</p>
         </div>
 
-        <!-- 10. Attractions Section with rich summarized internet descriptions -->
+        <!-- 10. Attractions Section -->
         <div id="links-sec" class="section-card">
             <h2 class="section-title">📍 אטרקציות ונקודות עניין (13 מוקדים)</h2>
             <div class="attractions-list">
@@ -546,152 +548,140 @@
                     <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=600&q=80" class="attraction-img">
                     <div class="attraction-body">
                         <div class="attraction-header-row"><span class="attraction-title">1. The WB Abu Dhabi Hotel</span><a href="https://maps.google.com/?q=The+WB+Abu+Dhabi+Hotel" target="_blank" class="btn-maps">ניווט 🗺️</a></div>
-                        <div class="attraction-snippet">מלון הקונספט הקולנועי הראשון בעולם של חברת וורנר ברוס.</div>
+                        <div class="attraction-snippet">מלון הקונספט הרשמי של וורנר ברוס באי יאס.</div>
                         <button class="toggle-details-btn" onclick="toggleDetails(this)">📖 מידע מלא ▾</button>
-                        <div class="attraction-details">מלון 5 כוכבים יוקרתי המעוצב כולו סביב סרטים וסדרות טלוויזיה מפורסמות. המלון מציע בריכות מרהיבות עם אזורי ילדים, הקרנות סרטים באוויר הפתוח, מועדון ילדים פעיל ואירוח חווייתי שבו דמויות מוכרות מסתובבות בין האורחים בלובי. ממוקם בלב אי יאס במרחק הליכה קצר מהפארקים.</div>
+                        <div class="attraction-details">מלון 5 כוכבים מרהיב עם בריכות, מועדון ילדים ודמויות לוני טונס.</div>
                     </div>
                 </div>
                 <div class="attraction-card" id="attr-2">
                     <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80" class="attraction-img">
                     <div class="attraction-body">
                         <div class="attraction-header-row"><span class="attraction-title">2. Yas Beach <span class="badge">חינם לאורחי WB</span></span><a href="https://maps.google.com/?q=Yas+Beach+Abu+Dhabi" target="_blank" class="btn-maps">ניווט 🗺️</a></div>
-                        <div class="attraction-snippet">חוף ים טרופי אקסקלוסיבי עם כניסה חופשית לאורחי מלון WB.</div>
+                        <div class="attraction-snippet">חוף ים אקסקלוסיבי עם כניסה חינם לאורחי המלון.</div>
                         <button class="toggle-details-btn" onclick="toggleDetails(this)">📖 מידע מלא ▾</button>
-                        <div class="attraction-details">חוף מוסדר המציע חול לבן נעים, מי טורקיז צלולים, מיטות שיזוף רחבות ושמשיות ללא עלות עבור אורחי המלון. במקום ישנם מתחמי ספורט ימי, מסעדות חוף קלילות ואווירה רגועה המושלמת למשפחות. ההגעה נוחה מאוד באמצעות שאטל ה-Yas Express החינמי העוצר בפתחו.</div>
+                        <div class="attraction-details">חוף מוסדר ויפהפה עם מיטות שיזוף, שמשיות ואווירה טרופית.</div>
                     </div>
                 </div>
                 <div class="attraction-card" id="attr-3">
                     <img src="https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?auto=format&fit=crop&w=600&q=80" class="attraction-img">
                     <div class="attraction-body">
                         <div class="attraction-header-row"><span class="attraction-title">3. Warner Bros. World</span><a href="https://maps.google.com/?q=Warner+Bros+World+Abu+Dhabi" target="_blank" class="btn-maps">ניווט 🗺️</a></div>
-                        <div class="attraction-snippet">פארק השעשועים המקורה והממוזג הגדול בעולם.</div>
+                        <div class="attraction-snippet">פארק שעשועים מקורה וממוזג לחלוטין.</div>
                         <button class="toggle-details-btn" onclick="toggleDetails(this)">📖 מידע מלא ▾</button>
-                        <div class="attraction-details">פארק ענק המאורגן תחת קתדרה מקורה וממוזגת לחלוטין (מושלם מפני החום), המחולק לשישה עולמות נושא מרתקים: גות'האם סיטי, מטרופוליס, עולם האנימציה של לוני טונס ועוד. מציע מתקנים חווייתיים לכל הגילאים, רכבות הרים אינטראקטיביות ומפגשים מרגשים עם דמויות עולם הקולנוע.</div>
+                        <div class="attraction-details">עולמות תוכן מרהיבים של באטמן, סופרמן, לוני טונס ועוד.</div>
                     </div>
                 </div>
                 <div class="attraction-card" id="attr-4">
                     <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=600&q=80" class="attraction-img">
                     <div class="attraction-body">
                         <div class="attraction-header-row"><span class="attraction-title">4. SeaWorld Abu Dhabi</span><a href="https://maps.google.com/?q=SeaWorld+Abu+Dhabi" target="_blank" class="btn-maps">ניווט 🗺️</a></div>
-                        <div class="attraction-snippet">הפארק הימי והאקווריום המקורה המתקדם בעולם.</div>
+                        <div class="attraction-snippet">פארק ימי ואקווריום עצום ומקורה.</div>
                         <button class="toggle-details-btn" onclick="toggleDetails(this)">📖 מידע מלא ▾</button>
-                        <div class="attraction-details">עולם ימי מרהיב הכולל את האקווריום המרכזי העצום בעולם, מנהרת זכוכית תת-ימית מהפנטת, מופעי דולפינים ואריות ים ברמה עולמית, ואזור משחקים אינטראקטיבי לילדים (MicroOcean). הפארק מקורה לחלוטין ונגיש בצורה מלאה לעגלות ולכל בני המשפחה.</div>
+                        <div class="attraction-details">כולל מופעי דולפינים, פינגווינים ורכבת הרים.</div>
                     </div>
                 </div>
                 <div class="attraction-card" id="attr-5">
                     <img src="https://images.unsplash.com/photo-1582650625119-3a31f8876f31?auto=format&fit=crop&w=600&q=80" class="attraction-img">
                     <div class="attraction-body">
                         <div class="attraction-header-row"><span class="attraction-title">5. Yas Waterworld Abu Dhabi</span><a href="https://maps.google.com/?q=Yas+Waterworld+Abu+Dhabi" target="_blank" class="btn-maps">ניווט 🗺️</a></div>
-                        <div class="attraction-snippet">פארק מים אגדי בהשראה אמירתית עם עשרות מגלשות.</div>
+                        <div class="attraction-snippet">פארק מים ענק עם מגלשות מהירות ובריכות גלים.</div>
                         <button class="toggle-details-btn" onclick="toggleDetails(this)">📖 מידע מלא ▾</button>
-                        <div class="attraction-details">פארק מים רחב ידיים הכולל מעל 40 מגלשות שונות, מתקני אקסטרים אנכיים לגדולים לצד בריכות גלים ואזורים רדודים בטוחים לפעוטות וילדים. משלב סיפור אגדה מקומי עם חוויות מים מרעננות ליום שלם של כיף משפחתי.</div>
+                        <div class="attraction-details">מעל 40 מגלשות מים מטורפות ומתקנים לכל המשפחה.</div>
                     </div>
                 </div>
                 <div class="attraction-card" id="attr-6">
                     <img src="https://images.unsplash.com/photo-1563720223185-11003d516935?auto=format&fit=crop&w=600&q=80" class="attraction-img">
                     <div class="attraction-body">
                         <div class="attraction-header-row"><span class="attraction-title">6. Ferrari World Abu Dhabi</span><a href="https://maps.google.com/?q=Ferrari+World+Abu+Dhabi" target="_blank" class="btn-maps">ניווט 🗺️</a></div>
-                        <div class="attraction-snippet">פארק מוטורי ענק תחת כיפת ענק אדומה וממוזגת.</div>
+                        <div class="attraction-snippet">פארק שעשועים מוטורי עם רכבת ההרים המהירה בעולם.</div>
                         <button class="toggle-details-btn" onclick="toggleDetails(this)">📖 מידע מלא ▾</button>
-                        <div class="attraction-details">הפארק המושקע של מותג העל פרארי, המפורסם בזכות רכבת ההרים המהירה בעולם – Formula Rossa, המאיצה למהירות מסחררת של 240 קמ"ש. הפארק כולל גם סימולטורים מתקדמים, רכבות משפחתיות ומופעים ראוותניים.</div>
+                        <div class="attraction-details">רכבת Formula Rossa במהירות 240 קמ"ש וסימולטורים.</div>
                     </div>
                 </div>
                 <div class="attraction-card" id="attr-7">
                     <img src="https://images.unsplash.com/photo-1555529771-835f59fc5efe?auto=format&fit=crop&w=600&q=80" class="attraction-img">
                     <div class="attraction-body">
                         <div class="attraction-header-row"><span class="attraction-title">7. Yas Mall</span><a href="https://maps.google.com/?q=Yas+Mall+Abu+Dhabi" target="_blank" class="btn-maps">ניווט 🗺️</a></div>
-                        <div class="attraction-snippet">הקניון הגדול והמרכזי באי יאס, מחובר ישירות לפארק פרארי.</div>
+                        <div class="attraction-snippet">הקניון המרכזי באי יאס המחובר לפארק פרארי.</div>
                         <button class="toggle-details-btn" onclick="toggleDetails(this)">📖 מידע מלא ▾</button>
-                        <div class="attraction-details">מתחם קניות ובילויים עצום המאכלס מאות חנויות אופנה בינלאומיות, בתי קולנוע מודרניים, ומתחם אוכל ענק. מחובר באופן ישיר לפארק פרארי וורלד, מה שמאפשר מעבר קל ונוח בין קניות למסע קולינרי ממוזג.</div>
+                        <div class="attraction-details">מאות חנויות, מתחמי אוכל ובילוי לכל המשפחה.</div>
                     </div>
                 </div>
                 <div class="attraction-card" id="attr-8">
                     <img src="https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=600&q=80" class="attraction-img">
                     <div class="attraction-body">
                         <div class="attraction-header-row"><span class="attraction-title">8. Abu Dhabi Dates Market</span><a href="https://maps.google.com/?q=Abu+Dhabi+Dates+Market" target="_blank" class="btn-maps">ניווט 🗺️</a></div>
-                        <div class="attraction-snippet">שוק תמרים אותנטי ומרהיב בנמל מינא.</div>
+                        <div class="attraction-snippet">שוק התמרים האותנטי בנמל מינא.</div>
                         <button class="toggle-details-btn" onclick="toggleDetails(this)">📖 מידע מלא ▾</button>
-                        <div class="attraction-details">שוק מקומי מסורתי המציע שפע עצום של סוגי תמרים טריים, תמרים ממולאים בשקדים ושוקולד, מארזי מתנה מהודרים וקפה ערבי אותנטי. המוכרים מקדמים בברכה את המבקרים ומציעים טעימות חופשיות מכל טוב השוק במחירים משתלמים.</div>
+                        <div class="attraction-details">מגוון עצום של תמרים טריים, קפה ערבי ומזכרות.</div>
                     </div>
                 </div>
                 <div class="attraction-card" id="attr-9">
                     <img src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=600&q=80" class="attraction-img">
                     <div class="attraction-body">
                         <div class="attraction-header-row"><span class="attraction-title">9. Mina Market</span><a href="https://maps.google.com/?q=Mina+Market+Abu+Dhabi" target="_blank" class="btn-maps">ניווט 🗺️</a></div>
-                        <div class="attraction-snippet">מתחם שווקים מקורה, צבעוני ותוסס בנמל העיר.</div>
+                        <div class="attraction-snippet">שוק הנמל הממוזג והמחודש.</div>
                         <button class="toggle-details-btn" onclick="toggleDetails(this)">📖 מידע מלא ▾</button>
-                        <div class="attraction-details">מרכז שווקים מחודש המרכז את שוק הפירות והירקות הטרופיים, שוק שטיחים אתני, חנויות קרמיקה ועבודות יד מסורתיות. מקום נהדר לספוג את התרבות המקומית, להתרשם מצבעים עזים וליהנות מחוויית קניות אותנטית.</div>
+                        <div class="attraction-details">שוק פירות טרופיים, שטיחים, קרמיקה ודגים.</div>
                     </div>
                 </div>
                 <div class="attraction-card" id="attr-10">
                     <img src="https://images.unsplash.com/photo-1580674684081-7617fbf3d745?auto=format&fit=crop&w=600&q=80" class="attraction-img">
                     <div class="attraction-body">
                         <div class="attraction-header-row"><span class="attraction-title">10. מסגד שייח' זאיד הגדול</span><a href="https://maps.google.com/?q=Sheikh+Zayed+Grand+Mosque" target="_blank" class="btn-maps">ניווט 🗺️</a></div>
-                        <div class="attraction-snippet">פנינה ארכיטקטונית לבנה מהיפות והמרשימות בעולם.</div>
+                        <div class="attraction-snippet">יצירת מופת מרהיבה משיש לבן.</div>
                         <button class="toggle-details-btn" onclick="toggleDetails(this)">📖 מידע מלא ▾</button>
-                        <div class="attraction-details">יצירת מופת אדריכלית עשויה שיש לבן טהור, המעוטרת בכיפות ענק, נברשות קריסטל מרהיבות ושטיח בעבודת יד מהגדולים בעולם. הביקור בשעות השקיעה והערב מעניק חוויה חזותית עוצרת נשימה עם תאורה מיוחדת המאירה את כל המתחם.</div>
+                        <div class="attraction-details">אחד המסגדים המפוארים בעולם, מומלץ לבקר בשקיעה.</div>
                     </div>
                 </div>
                 <div class="attraction-card" id="attr-11">
                     <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=600&q=80" class="attraction-img">
                     <div class="attraction-body">
                         <div class="attraction-header-row"><span class="attraction-title">11. ארמון הנשיא: Qasr Al Watan</span><a href="https://maps.google.com/?q=Qasr+Al+Watan" target="_blank" class="btn-maps">ניווט 🗺️</a></div>
-                        <div class="attraction-snippet">ארמון נשיאותי מלכותי הפתוח לסיורים מודרניים.</div>
+                        <div class="attraction-snippet">ארמון נשיאותי מרהיב וממוזג.</div>
                         <button class="toggle-details-btn" onclick="toggleDetails(this)">📖 מידע מלא ▾</button>
-                        <div class="attraction-details">ארמון מרהיב המציג את המורשת והתרבות של איחוד האמירויות. הארמון מתאפיין בכיפות מוזהבות, אולמות קבלה עצומים ומרשימים, וספרייה רחבת ידיים. האתר ממוזג ונגיש לחלוטין, ומציע בערב מופע אורקולי מדהים על חזית המבנה.</div>
+                        <div class="attraction-details">ארמון פעיל עם אולמות ענק מוזהבים ומופע אורות.</div>
                     </div>
                 </div>
                 <div class="attraction-card" id="attr-12">
                     <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=600&q=80" class="attraction-img">
                     <div class="attraction-body">
                         <div class="attraction-header-row"><span class="attraction-title">12. שוק מדינת זאיד הזול</span><a href="https://maps.google.com/?q=Madinat+Zayed+Shopping+Centre" target="_blank" class="btn-maps">ניווט 🗺️</a></div>
-                        <div class="attraction-snippet">בזאר מקורה ואותנטי המפורסם במציאות ובקומת הזהב.</div>
+                        <div class="attraction-snippet">בזאר מקורה ענק וזול לקניות וזהב.</div>
                         <button class="toggle-details-btn" onclick="toggleDetails(this)">📖 מידע מלא ▾</button>
-                        <div class="attraction-details">מרכז קניות מקומי שאינו ממוסחר, המציע חנויות בגדים, צעצועים, מזכרות ובשמים במחירים זולים במיוחד. בקומה העליונה נמצא מתחם "קומת הזהב" המרשים. מקום מעולה למיקוח ולמציאת מציאות מקומיות.</div>
+                        <div class="attraction-details">שפע מציאות, בגדים, מזכרות וקומת זהב ענקית.</div>
                     </div>
                 </div>
                 <div class="attraction-card" id="attr-13">
                     <img src="https://images.unsplash.com/photo-1519501025264-65ba15a82390?auto=format&fit=crop&w=600&q=80" class="attraction-img">
                     <div class="attraction-body">
                         <div class="attraction-header-row"><span class="attraction-title">13. The Galleria Mall</span><a href="https://maps.google.com/?q=The+Galleria+Al+Maryah+Island" target="_blank" class="btn-maps">ניווט 🗺️</a></div>
-                        <div class="attraction-snippet">קניון יוקרה מודרני ואלגנטי השוכן מול המים.</div>
+                        <div class="attraction-snippet">קניון יוקרה מודרני מול המרינה.</div>
                         <button class="toggle-details-btn" onclick="toggleDetails(this)">📖 מידע מלא ▾</button>
-                        <div class="attraction-details">מרכז קניות חדיש ויוקרתי הממוקם באי אל מריה. הקניון מציע שילוב של מותגי אופנה בינלאומיים מובילים, בתי קפה מעוצבים ומתחם מסעדות איכותי ורחב ידיים המשקיף אל נופי המרינה והמים.</div>
+                        <div class="attraction-details">קניון יפהפה עם מותגי על ומסעדות מעולות.</div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Bottom Navigation Bar: Dedicated exclusively to Days 1-7 -->
+    <!-- Bottom Navigation Bar -->
     <div class="bottom-nav">
-        <button class="bottom-nav-btn active" onclick="switchSection('day1'); setActiveBottomNav(this)">
+        <button class="bottom-nav-btn active" onclick="switchSection('day1'); setActiveNav(this)">
             <span class="icon">📅</span>
-            <span>שלישי 10.11</span>
+            <span>לו"ז יומי</span>
         </button>
-        <button class="bottom-nav-btn" onclick="switchSection('day2'); setActiveBottomNav(this)">
-            <span class="icon">📅</span>
-            <span>רביעי 11.11</span>
+        <button class="bottom-nav-btn" onclick="switchSection('flights-sec'); setActiveNav(this)">
+            <span class="icon">✈️</span>
+            <span>טיסות</span>
         </button>
-        <button class="bottom-nav-btn" onclick="switchSection('day3'); setActiveBottomNav(this)">
-            <span class="icon">📅</span>
-            <span>חמישי 12.11</span>
+        <button class="bottom-nav-btn" onclick="switchSection('links-sec'); setActiveNav(this)">
+            <span class="icon">📍</span>
+            <span>אטרקציות</span>
         </button>
-        <button class="bottom-nav-btn" onclick="switchSection('day4'); setActiveBottomNav(this)">
-            <span class="icon">📅</span>
-            <span>שישי 13.11</span>
-        </button>
-        <button class="bottom-nav-btn" onclick="switchSection('day5'); setActiveBottomNav(this)">
-            <span class="icon">📅</span>
-            <span>שבת 14.11</span>
-        </button>
-        <button class="bottom-nav-btn" onclick="switchSection('day6'); setActiveBottomNav(this)">
-            <span class="icon">📅</span>
-            <span>ראשון 15.11</span>
-        </button>
-        <button class="bottom-nav-btn" onclick="switchSection('day7'); setActiveBottomNav(this)">
-            <span class="icon">📅</span>
-            <span>שני 16.11</span>
+        <button class="bottom-nav-btn" onclick="switchSection('shabbat-sec'); setActiveNav(this)">
+            <span class="icon">🕌</span>
+            <span>שבת</span>
         </button>
     </div>
 
@@ -706,9 +696,8 @@
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             }
             
-            // Handle top tabs active state
-            const topButtons = document.querySelectorAll('#top-tabs .tab-btn');
-            topButtons.forEach(btn => {
+            const buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(btn => {
                 if (btn.getAttribute('onclick') && btn.getAttribute('onclick').includes(id)) {
                     btn.classList.add('active');
                 } else {
@@ -717,25 +706,10 @@
             });
         }
 
-        function setActiveBottomNav(element) {
+        function setActiveNav(element) {
             const navBtns = document.querySelectorAll('.bottom-nav-btn');
             navBtns.forEach(btn => btn.classList.remove('active'));
             element.classList.add('active');
-
-            // Also clear top tabs active state when clicking a day from bottom nav
-            const topButtons = document.querySelectorAll('#top-tabs .tab-btn');
-            topButtons.forEach(btn => btn.classList.remove('active'));
-        }
-
-        // Connect top buttons to clear bottom nav highlight if a general tab is selected
-        document.querySelectorAll('#top-tabs .tab-btn').forEach(btn => {
-            const originalOnClick = btn.getAttribute('onclick');
-            btn.setAttribute('onclick', originalOnClick + '; clearBottomNav();');
-        });
-
-        function clearBottomNav() {
-            const navBtns = document.querySelectorAll('.bottom-nav-btn');
-            navBtns.forEach(btn => btn.classList.remove('active'));
         }
 
         function toggleDetails(btn) {
@@ -751,17 +725,6 @@
 
         function jumpToAttraction(attrId) {
             switchSection('links-sec');
-            
-            // Highlight attractions tab in top nav
-            const topButtons = document.querySelectorAll('#top-tabs .tab-btn');
-            topButtons.forEach(btn => {
-                if (btn.getAttribute('onclick').includes('links-sec')) {
-                    btn.classList.add('active');
-                } else {
-                    btn.classList.remove('active');
-                }
-            });
-            clearBottomNav();
 
             setTimeout(() => {
                 const card = document.getElementById(attrId);
