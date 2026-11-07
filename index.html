@@ -1,4 +1,4 @@
-<!DOCTYPE html>\n<!DOCTYPE html>
+<!DOCTYPE html>
 
 <html dir="rtl" lang="he">
 <head>
@@ -340,6 +340,14 @@
             margin-right: 4px;
         }
 
+
+        .home-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 14px; }
+        .home-tile { background: #f8fafc; border: 1px solid var(--border); border-radius: 10px; padding: 12px; }
+        .home-tile strong { display: block; color: var(--primary); margin-bottom: 3px; }
+        .home-intro { color: var(--text-muted); font-size: .95rem; margin-bottom: 12px; }
+        .home-action { display: block; width: 100%; margin-top: 10px; padding: 11px 14px; border: 0; border-radius: 10px; background: var(--primary); color: white; font: 700 1rem 'Assistant', sans-serif; cursor: pointer; }
+        .home-action.secondary { background: #eaf2ff; color: var(--primary); }
+
         .bottom-nav {
             position: fixed;
             bottom: 0;
@@ -402,7 +410,22 @@
 </div>
 <div class="nav-tabs" id="top-tabs"><button class="tab-btn active" onclick="switchDay('day1')">שלישי 10.11</button><button class="tab-btn" onclick="switchDay('day2')">רביעי 11.11</button><button class="tab-btn" onclick="switchDay('day3')">חמישי 12.11</button><button class="tab-btn" onclick="switchDay('day4')">שישי 13.11</button><button class="tab-btn" onclick="switchDay('day5')">שבת 14.11</button><button class="tab-btn" onclick="switchDay('day6')">ראשון 15.11</button><button class="tab-btn" onclick="switchDay('day7')">שני 16.11</button></div>
 <!-- 1. Flights -->
-<div class="section-card active-section" id="flights-sec">
+
+<div class="section-card active-section" id="home-sec">
+<h2 class="section-title">🌴 ברוכים הבאים לחופשה באבו דאבי</h2>
+<p class="home-intro">שבוע של חופשה משפחתית באי יאס ובאבו דאבי, עם זמן למלון, פארקים, שווקים וקצת מנוחה.</p>
+<div class="home-grid">
+<div class="home-tile"><strong>📅 תאריכים</strong>10–16 בנובמבר 2026</div>
+<div class="home-tile"><strong>🏨 מלון</strong>The WB Abu Dhabi</div>
+<div class="home-tile"><strong>✈️ טיסת הלוך</strong>שלישי, 10.11 · EY 594</div>
+<div class="home-tile"><strong>✈️ טיסת חזור</strong>שני, 16.11 · EY 593</div>
+</div>
+<button class="home-action" onclick="switchCategory('daily')">למעבר ללוח הזמנים היומי 📅</button>
+<button class="home-action secondary" onclick="switchCategory('attractions')">לצפייה באטרקציות ובניווט 📍</button>
+<p style="font-size:.82rem;color:var(--text-muted);margin-top:12px;text-align:center;">בחרו קטגוריה בתפריט התחתון כדי להתחיל.</p>
+</div>
+
+<div class="section-card" id="flights-sec">
 <h2 class="section-title">✈️ פרטי טיסות ומדיניות כבודה (אתיחאד איירווייז)</h2>
 <div style="margin-bottom: 14px;">
 <h3 style="font-size: 1rem; color: #0f172a; margin-bottom: 6px;">🛫 הלוך: תל אביב (TLV) ← אבו דאבי (AUH)</h3>
@@ -458,7 +481,7 @@
 <div style="font-size: 0.9rem; margin-bottom: 4px;">🔹 <strong>דמויות:</strong> לוני טונס וגיבורי על בלובי.</div>
 <div style="font-size: 0.9rem;">🔹 <strong>בריכת ילדים:</strong> מתחם מים והקרנת סרטים.</div>
 </div>
-<div class="timeline-item" style="margin-top:10px;"><div class="timeline-time">18:30-19:30</div><div class="timeline-content"><label class="checkbox-container"><input type="checkbox"/><div><strong>טיול ערב:</strong> סיור רגוע לאורך טיילת Yas Bay.</div></label></div></div>
+<div class="timeline-item" style="margin-top:10px;"><div class="timeline-time">18:30-19:30</div><div class="timeline-content"><label class="checkbox-container"><input type="checkbox"/><div><strong>טיול ערב:</strong> סיור רגוע לאורך טיילת <a class="attr-link-tag" href="https://www.google.com/maps/search/?api=1&query=Yas+Bay+Waterfront+Abu+Dhabi" target="_blank" rel="noopener">Yas Bay 📍</a>.</div></label></div></div>
 <div class="timeline-item"><div class="timeline-time">19:30</div><div class="timeline-content"><label class="checkbox-container"><input type="checkbox"/><div><strong>ארוחת ערב</strong> במלון.</div></label></div></div>
 </div>
 </div>
@@ -466,6 +489,7 @@
 <div class="section-card" id="day2">
 <h2 class="section-title">📅 יום רביעי, 11.11 | Warner Bros. World</h2>
 <div class="day-timeline">
+<div class="timeline-item"><div class="timeline-time">08:30-09:45</div><div class="timeline-content"><label class="checkbox-container"><input type="checkbox"/><div><strong>ארוחת בוקר</strong> במלון.</div></label></div></div>
 <div class="timeline-item"><div class="timeline-time">10:00-14:00</div><div class="timeline-content"><label class="checkbox-container"><input type="checkbox"/><div><strong>פארק שעשועים:</strong> בילוי ב-<span class="attr-link-tag" onclick="jumpToAttraction('attr-3')">Warner Bros. World Abu Dhabi</span>.</div></label></div></div>
 <div class="timeline-item"><div class="timeline-time">14:00-16:00</div><div class="timeline-content"><label class="checkbox-container"><input type="checkbox"/><div><strong>מנוחת צהריים:</strong> חזרה למלון למנוחה.</div></label></div></div>
 <div class="split-box">
@@ -480,6 +504,7 @@
 <div class="section-card" id="day3">
 <h2 class="section-title">📅 יום חמישי, 12.11 | SeaWorld, שוק התמרים ומסגד שייח' זאיד</h2>
 <div class="day-timeline">
+<div class="timeline-item"><div class="timeline-time">08:30-09:30</div><div class="timeline-content"><label class="checkbox-container"><input type="checkbox"/><div><strong>ארוחת בוקר</strong> במלון.</div></label></div></div>
 <div class="timeline-item"><div class="timeline-time">10:00-15:30</div><div class="timeline-content"><label class="checkbox-container"><input type="checkbox"/><div><strong>🐬 פארק ימי:</strong> בילוי ב-<span class="attr-link-tag" onclick="jumpToAttraction('attr-4')">SeaWorld Abu Dhabi</span>.</div></label></div></div>
 <div class="timeline-item"><div class="timeline-time">15:30-16:45</div><div class="timeline-content"><label class="checkbox-container"><input type="checkbox"/><div><strong>🛒 שוק התמרים:</strong> ביקור ב-<span class="attr-link-tag" onclick="jumpToAttraction('attr-8')">Abu Dhabi Dates Market</span> וב-<span class="attr-link-tag" onclick="jumpToAttraction('attr-9')">Mina Market</span>.</div></label></div></div>
 <div class="timeline-item"><div class="timeline-time">17:15-18:30</div><div class="timeline-content"><label class="checkbox-container"><input type="checkbox"/><div><strong>🕌 מסגד:</strong> ביקור ב-<span class="attr-link-tag" onclick="jumpToAttraction('attr-10')">Sheikh Zayed Grand Mosque</span> בשקיעה.</div></label></div></div>
@@ -490,6 +515,7 @@
 <div class="section-card" id="day4">
 <h2 class="section-title">📅 יום שישי, 13.11 | חוף הים והיערכות לשבת</h2>
 <div class="day-timeline">
+<div class="timeline-item"><div class="timeline-time">08:30-09:30</div><div class="timeline-content"><label class="checkbox-container"><input type="checkbox"/><div><strong>ארוחת בוקר</strong> במלון.</div></label></div></div>
 <div class="timeline-item"><div class="timeline-time">10:00-13:30</div><div class="timeline-content"><label class="checkbox-container"><input type="checkbox"/><div><strong>🏖️ חוף הים:</strong> בילוי ב-<span class="attr-link-tag" onclick="jumpToAttraction('attr-2')">Yas Beach</span> (כניסה חינם לאורחי WB).</div></label></div></div>
 <div class="timeline-item"><div class="timeline-time">13:30-16:00</div><div class="timeline-content"><label class="checkbox-container"><input type="checkbox"/><div><strong>חזרה למלון</strong> ובריכה.</div></label></div></div>
 <div class="timeline-item"><div class="timeline-time">17:21</div><div class="timeline-content"><label class="checkbox-container"><input type="checkbox"/><div><strong>🕯️ כניסת שבת באבו דאבי</strong>.</div></label></div></div>
@@ -500,6 +526,7 @@
 <div class="section-card" id="day5">
 <h2 class="section-title">📅 יום שבת, 14.11 | שבת משפחתית, מנוחה ואפשרות לפארק מים</h2>
 <div class="day-timeline">
+<div class="timeline-item"><div class="timeline-time">09:00-10:15</div><div class="timeline-content"><label class="checkbox-container"><input type="checkbox"/><div><strong>ארוחת בוקר</strong> במלון.</div></label></div></div>
 <div class="split-box" style="margin: 10px 0;">
 <div style="font-weight: bold; color: #166534; margin-bottom: 6px;">🔀 פיצול בשבת (התאמה לשומרי שבת):</div>
 <div style="margin-bottom: 4px;">🕌 <strong>סבא וסבתא והשומרים:</strong> מנוחה ושקט במלון <span class="attr-link-tag" onclick="jumpToAttraction('attr-1')">The WB Abu Dhabi</span>.</div>
@@ -513,6 +540,7 @@
 <div class="section-card" id="day6">
 <h2 class="section-title">📅 יום ראשון, 15.11 | Yas Mall ו-Ferrari World</h2>
 <div class="day-timeline">
+<div class="timeline-item"><div class="timeline-time">09:00-10:00</div><div class="timeline-content"><label class="checkbox-container"><input type="checkbox"/><div><strong>ארוחת בוקר</strong> במלון.</div></label></div></div>
 <div class="timeline-item"><div class="timeline-time">10:30-15:30</div><div class="timeline-content"><label class="checkbox-container"><input type="checkbox"/><div><strong>🏎️ פארק וקניון:</strong> ביקור ב-<span class="attr-link-tag" onclick="jumpToAttraction('attr-6')">Ferrari World</span> וב-<span class="attr-link-tag" onclick="jumpToAttraction('attr-7')">Yas Mall</span>.</div></label></div></div>
 <div class="timeline-item"><div class="timeline-time">19:30</div><div class="timeline-content"><label class="checkbox-container"><input type="checkbox"/><div><strong>ארוחת ערב</strong> במלון.</div></label></div></div>
 </div>
@@ -521,6 +549,7 @@
 <div class="section-card" id="day7">
 <h2 class="section-title">📅 יום שני, 16.11 | ארמון הנשיא, שוק מדינת זאיד וחזרה</h2>
 <div class="day-timeline">
+<div class="timeline-item"><div class="timeline-time">08:30-10:00</div><div class="timeline-content"><label class="checkbox-container"><input type="checkbox"/><div><strong>ארוחת בוקר אחרונה</strong> במלון, לפני היציאה ליום האחרון.</div></label></div></div>
 <div class="timeline-item"><div class="timeline-time">10:30-12:15</div><div class="timeline-content"><label class="checkbox-container"><input type="checkbox"/><div><strong>🏛️ ארמון:</strong> ביקור ב-<span class="attr-link-tag" onclick="jumpToAttraction('attr-11')">Qasr Al Watan</span>.</div></label></div></div>
 <div class="timeline-item"><div class="timeline-time">12:30-14:45</div><div class="timeline-content"><label class="checkbox-container"><input type="checkbox"/><div><strong>🛍️ קניות:</strong> ביקור ב-<span class="attr-link-tag" onclick="jumpToAttraction('attr-12')">Madinat Zayed</span> או ב-<span class="attr-link-tag" onclick="jumpToAttraction('attr-13')">The Galleria</span>.</div></label></div></div>
 <div class="timeline-item"><div class="timeline-time">21:50</div><div class="timeline-content"><label class="checkbox-container"><input type="checkbox"/><div><strong>המראה חזרה לישראל</strong> (EY 593).</div></label></div></div>
@@ -534,7 +563,7 @@
 </div>
 <!-- 10. Attractions Section -->
 <div class="section-card" id="links-sec">
-<h2 class="section-title">📍 אטרקציות ונקודות עניין (13 מוקדים)</h2>
+<h2 class="section-title">📍 אטרקציות ונקודות עניין (כולל Yas Bay)</h2>
 <div class="attractions-list">
 <div class="attraction-card" id="attr-1">
 <img alt="1. The WB Abu Dhabi Hotel" class="attraction-img" loading="lazy" referrerpolicy="no-referrer" src="https://commons.wikimedia.org/wiki/Special:FilePath/The_WB_Abu_Dhabi,_Curio_Collection_By_Hilton_02.jpg"/>
@@ -657,16 +686,22 @@
 </div>
 </div>
 <!-- Bottom Navigation Bar -->
-<div class="bottom-nav"><button class="bottom-nav-btn active" onclick="switchCategory('daily')"><span class="icon">📅</span><span>לו״ז יומי</span></button><button class="bottom-nav-btn" onclick="switchCategory('flights')"><span class="icon">✈️</span><span>טיסות</span></button><button class="bottom-nav-btn" onclick="switchCategory('attractions')"><span class="icon">📍</span><span>אטרקציות</span></button><button class="bottom-nav-btn" onclick="switchCategory('shabbat')"><span class="icon">🕌</span><span>שבת</span></button></div>
+<div class="bottom-nav">
+    <button class="bottom-nav-btn active" onclick="switchCategory('home')"><span class="icon">🏠</span><span>ראשי</span></button>
+    <button class="bottom-nav-btn" onclick="switchCategory('daily')"><span class="icon">📅</span><span>לו״ז יומי</span></button>
+    <button class="bottom-nav-btn" onclick="switchCategory('flights')"><span class="icon">✈️</span><span>טיסות</span></button>
+    <button class="bottom-nav-btn" onclick="switchCategory('attractions')"><span class="icon">📍</span><span>אטרקציות</span></button>
+    <button class="bottom-nav-btn" onclick="switchCategory('shabbat')"><span class="icon">🕌</span><span>שבת</span></button>
+</div>
 <script>
-        let currentCategory = 'daily';
+        let currentCategory = 'home';
         function updateTopTabs() {
             const tabs = document.getElementById('top-tabs');
             tabs.style.display = currentCategory === 'daily' ? 'flex' : 'none';
         }
         function setBottomActive(category) {
             document.querySelectorAll('.bottom-nav-btn').forEach((btn, index) => {
-                btn.classList.toggle('active', ['daily','flights','attractions','shabbat'][index] === category);
+                btn.classList.toggle('active', ['home','daily','flights','attractions','shabbat'][index] === category);
             });
         }
         function showSection(id) {
@@ -679,7 +714,7 @@
             currentCategory = category;
             setBottomActive(category);
             updateTopTabs();
-            const section = { daily: 'day1', flights: 'flights-sec', attractions: 'links-sec', shabbat: 'shabbat-sec' }[category];
+            const section = { home: 'home-sec', daily: 'day1', flights: 'flights-sec', attractions: 'links-sec', shabbat: 'shabbat-sec' }[category];
             showSection(section);
             if (category === 'daily') setDayActive('day1');
         }
@@ -721,9 +756,10 @@
             }, 100);
         }
         document.addEventListener('DOMContentLoaded', () => {
-            currentCategory = 'daily';
+            currentCategory = 'home';
+            setBottomActive('home');
             updateTopTabs();
-            setDayActive('day1');
+            showSection('home-sec');
         });
 </script>
 </body>
