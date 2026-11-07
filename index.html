@@ -1,774 +1,56 @@
-<!DOCTYPE html>
-<html dir="rtl" lang="he">
-<head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
-<title>אבו דאבי - אפליקציית חופשה משפחתית</title>
-<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700&amp;display=swap" rel="stylesheet"/>
-<style>
-        :root {
-            --primary: #1e3a8a;
-            --primary-light: #3b82f6;
-            --secondary: #0284c7;
-            --accent: #f59e0b;
-            --bg-main: #f8fafc;
-            --bg-card: #ffffff;
-            --text-main: #1e293b;
-            --text-muted: #64748b;
-            --border: #e2e8f0;
-            --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.05);
-            --radius: 14px;
-            --split-bg: #f0fdf4;
-            --split-border: #bbf7d0;
-            --hotel-bg: #fff7ed;
-            --hotel-border: #fed7aa;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: 'Assistant', system-ui, -apple-system, sans-serif;
-            background-color: var(--bg-main);
-            color: var(--text-main);
-            line-height: 1.6;
-            padding-bottom: 80px;
-        }
-
-        .app-container {
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 12px;
-        }
-
-        .header {
-            background: linear-gradient(135deg, var(--primary) 0%, #0f172a 100%);
-            color: white;
-            padding: 24px 16px;
-            text-align: center;
-            border-radius: 16px;
-            box-shadow: var(--shadow);
-            margin-bottom: 16px;
-        }
-
-        .header h1 {
-            font-size: 1.6rem;
-            margin-bottom: 6px;
-            font-weight: 700;
-        }
-
-        .header p {
-            font-size: 0.95rem;
-            opacity: 0.9;
-        }
-
-        .nav-tabs {
-            display: flex;
-            gap: 8px;
-            overflow-x: auto;
-            padding: 4px 2px 12px 2px;
-            margin-bottom: 16px;
-            scrollbar-width: none;
-        }
-
-        .nav-tabs::-webkit-scrollbar {
-            display: none;
-        }
-
-        .tab-btn {
-            background-color: var(--bg-card);
-            border: 1px solid var(--border);
-            padding: 8px 14px;
-            border-radius: 20px;
-            cursor: pointer;
-            font-size: 0.9rem;
-            font-weight: 600;
-            color: var(--text-main);
-            white-space: nowrap;
-            transition: all 0.2s ease;
-            box-shadow: var(--shadow);
-        }
-
-        .tab-btn.active {
-            background-color: var(--primary);
-            color: white;
-            border-color: var(--primary);
-        }
-
-        .section-card {
-            background-color: var(--bg-card);
-            border-radius: var(--radius);
-            padding: 16px;
-            margin-bottom: 16px;
-            box-shadow: var(--shadow);
-            border: 1px solid var(--border);
-            display: none;
-        }
-
-        .section-card.active-section {
-            display: block;
-        }
-
-        .section-title {
-            font-size: 1.2rem;
-            color: var(--primary);
-            margin-bottom: 14px;
-            border-bottom: 2px solid #eff6ff;
-            padding-bottom: 8px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-weight: 700;
-        }
-
-        .day-timeline {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .timeline-item {
-            display: flex;
-            gap: 12px;
-            padding-bottom: 10px;
-            border-bottom: 1px dashed var(--border);
-        }
-
-        .timeline-item:last-child {
-            border-bottom: none;
-            padding-bottom: 0;
-        }
-
-        .timeline-time {
-            font-weight: 700;
-            color: var(--secondary);
-            min-width: 80px;
-            font-size: 0.95rem;
-        }
-
-        .timeline-content {
-            flex: 1;
-            font-size: 0.95rem;
-        }
-
-        .attr-link-tag {
-            color: var(--primary-light);
-            font-weight: 600;
-            cursor: pointer;
-            text-decoration: underline;
-            background: #eff6ff;
-            padding: 2px 6px;
-            border-radius: 4px;
-            display: inline-block;
-            margin: 1px 0;
-        }
-        .attr-link-tag:hover {
-            background: var(--primary-light);
-            color: white;
-        }
-
-        .split-box {
-            background-color: var(--split-bg);
-            border: 1px solid var(--split-border);
-            border-right: 4px solid #22c55e;
-            padding: 10px 12px;
-            border-radius: 8px;
-            margin-top: 8px;
-            font-size: 0.9rem;
-        }
-
-        .hotel-box {
-            background-color: var(--hotel-bg);
-            border: 1px solid var(--hotel-border);
-            border-radius: 8px;
-            padding: 12px;
-            margin-top: 10px;
-            border-right: 4px solid var(--accent);
-        }
-
-        .hotel-title {
-            font-weight: bold;
-            color: #c2410c;
-            margin-bottom: 6px;
-            font-size: 0.95rem;
-        }
-
-        .flight-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: #f8fafc;
-            padding: 10px 12px;
-            border-radius: 8px;
-            margin-bottom: 8px;
-            border: 1px solid var(--border);
-            font-size: 0.9rem;
-        }
-
-        .info-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 10px;
-            margin-top: 10px;
-        }
-
-        .info-item {
-            background-color: #f8fafc;
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 12px;
-            font-size: 0.9rem;
-        }
-
-        .info-item h4 {
-            color: var(--primary);
-            margin-bottom: 4px;
-            font-size: 0.95rem;
-        }
-
-        .attractions-list {
-            display: flex;
-            flex-direction: column;
-            gap: 14px;
-        }
-
-        .attraction-card {
-            background-color: #f8fafc;
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            overflow: hidden;
-            transition: all 0.2s ease;
-        }
-
-        .attraction-card.highlight {
-            border-color: var(--accent);
-            box-shadow: 0 0 10px rgba(245, 158, 11, 0.4);
-        }
-
-        .attraction-img {
-            width: 100%;
-            height: 160px;
-            object-fit: cover;
-        }
-
-        .attraction-body {
-            padding: 12px;
-        }
-
-        .attraction-header-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 6px;
-        }
-
-        .attraction-title {
-            font-weight: 700;
-            color: #0f172a;
-            font-size: 1.05rem;
-        }
-
-        .btn-maps {
-            background-color: #22c55e;
-            color: white;
-            padding: 6px 12px;
-            border-radius: 16px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            text-decoration: none;
-            white-space: nowrap;
-        }
-
-        .attraction-snippet {
-            font-size: 0.88rem;
-            color: var(--text-muted);
-            margin-bottom: 8px;
-        }
-
-        .attraction-details {
-            display: none;
-            font-size: 0.9rem;
-            color: var(--text-main);
-            background: #ffffff;
-            padding: 10px;
-            border-radius: 8px;
-            border: 1px dashed var(--border);
-            margin-top: 8px;
-            line-height: 1.5;
-        }
-
-        .toggle-details-btn {
-            background: none;
-            border: none;
-            color: var(--secondary);
-            font-weight: 600;
-            font-size: 0.85rem;
-            cursor: pointer;
-            padding: 2px 0;
-            font-family: 'Assistant', sans-serif;
-            display: flex;
-            align-items: center;
-            gap: 4px;
-        }
-
-        .checkbox-container {
-            display: flex;
-            align-items: flex-start;
-            gap: 8px;
-            cursor: pointer;
-        }
-
-        .checkbox-container input {
-            margin-top: 4px;
-            width: 16px;
-            height: 16px;
-            accent-color: var(--primary);
-        }
-
-        .badge {
-            display: inline-block;
-            background-color: var(--accent);
-            color: white;
-            padding: 2px 6px;
-            border-radius: 4px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            margin-right: 4px;
-        }
-
-        .home-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 14px; }
-        .home-tile { background: #f8fafc; border: 1px solid var(--border); border-radius: 10px; padding: 12px; }
-        .home-tile strong { display: block; color: var(--primary); margin-bottom: 3px; }
-        .home-intro { color: var(--text-muted); font-size: .95rem; margin-bottom: 12px; }
-        .home-action { display: block; width: 100%; margin-top: 10px; padding: 11px 14px; border: 0; border-radius: 10px; background: var(--primary); color: white; font: 700 1rem 'Assistant', sans-serif; cursor: pointer; }
-        .home-action.secondary { background: #eaf2ff; color: var(--primary); }
-
-        .bottom-nav {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background-color: var(--bg-card);
-            border-top: 1px solid var(--border);
-            display: flex;
-            justify-content: space-around;
-            padding: 8px 4px;
-            box-shadow: 0 -4px 6px -1px rgb(0 0 0 / 0.05);
-            z-index: 1000;
-        }
-
-        .bottom-nav-btn {
-            background: none;
-            border: none;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            font-family: 'Assistant', sans-serif;
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            cursor: pointer;
-            gap: 2px;
-            padding: 4px 8px;
-            border-radius: 8px;
-        }
-
-        .bottom-nav-btn.active {
-            color: var(--primary);
-            font-weight: 700;
-            background-color: #eff6ff;
-        }
-
-        .bottom-nav-btn span.icon {
-            font-size: 1.2rem;
-        }
-    
-        .attraction-img-placeholder {
-            height: 160px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 16px;
-            text-align: center;
-            color: #fff;
-            font-weight: 700;
-            background: linear-gradient(135deg, #1e3a8a, #0284c7);
-        }
-        #top-tabs { display: flex; }
-
-        .timeline-content { line-height: 1.65; }
-        .timeline-content strong { font-weight: 700; }
-        .timeline-item { align-items: flex-start; }
-        .split-box { margin: 10px 0; padding: 12px; }
-        .split-title { font-weight: 700; color: #166534; margin-bottom: 6px; }
-        .split-option { margin: 6px 0; line-height: 1.6; }
-        .hotel-box { margin: 10px 0; }
-        .hotel-title { font-weight: 700; color: #c2410c; margin-bottom: 6px; }
-        .list-box { background: #f8fafc; border: 1px solid var(--border); border-radius: 10px; padding: 12px; }
-        .list-item { margin: 8px 0; line-height: 1.6; }
-</style>
-</head>
-<body>
-<div class="app-container">
-<div class="header">
-<h1>אבו דאבי - חופשה משפחתית מורחבת</h1>
-<p>10.11.2026 – 16.11.2026 | מלון <span class="attr-link-tag" onclick="jumpToAttraction('attr-1')">The WB Abu Dhabi</span> (חצי פנסיון)</p>
-<p style="margin-top: 4px; font-size: 0.85rem; opacity: 0.85;">PNR הזמנת טיסה: <strong>9XO92L</strong></p>
-</div>
-<div class="nav-tabs" id="top-tabs"><button class="tab-btn active" onclick="switchDay('day1')">שלישי 10.11</button><button class="tab-btn" onclick="switchDay('day2')">רביעי 11.11</button><button class="tab-btn" onclick="switchDay('day3')">חמישי 12.11</button><button class="tab-btn" onclick="switchDay('day4')">שישי 13.11</button><button class="tab-btn" onclick="switchDay('day5')">שבת 14.11</button><button class="tab-btn" onclick="switchDay('day6')">ראשון 15.11</button><button class="tab-btn" onclick="switchDay('day7')">שני 16.11</button></div>
-
-<!-- Home Section -->
-<div class="section-card active-section" id="home-sec">
-<h2 class="section-title">🌴 ברוכים הבאים לחופשה באבו דאבי</h2>
-<p class="home-intro">שבוע של חופשה משפחתית באי יאס ובאבו דאבי, עם זמן למלון, פארקים, שווקים וקצת מנוחה.</p>
-<div class="home-grid">
-<div class="home-tile"><strong>📅 תאריכים</strong>10–16 בנובמבר 2026</div>
-<div class="home-tile"><strong>🏨 מלון</strong><span class="attr-link-tag" onclick="jumpToAttraction('attr-1')">The WB Abu Dhabi</span></div>
-<div class="home-tile"><strong>✈️ טיסת הלוך</strong>שלישי, 10.11 · EY 594</div>
-<div class="home-tile"><strong>✈️ טיסת חזור</strong>שני, 16.11 · EY 593</div>
-</div>
-<button class="home-action" onclick="switchCategory('daily')">למעבר ללוח הזמנים היומי 📅</button>
-<button class="home-action secondary" onclick="switchCategory('attractions')">לצפייה באטרקציות ובניווט 📍</button>
-<p style="font-size:.82rem;color:var(--text-muted);margin-top:12px;text-align:center;">בחרו קטגוריה בתפריט התחתון כדי להתחיל.</p>
-</div>
-
-<!-- Flights Section -->
-<div class="section-card" id="flights-sec">
-<h2 class="section-title">✈️ פרטי טיסות ומדיניות כבודה (אתיחאד איירווייז)</h2>
-<div style="margin-bottom: 14px;">
-<h3 style="font-size: 1rem; color: #0f172a; margin-bottom: 6px;">🛫 הלוך: תל אביב (TLV) ← אבו דאבי (AUH)</h3>
-<div class="flight-row">
-<div>
-<strong>טיסה ישירה: EY 594</strong><br/>
-<span style="font-size: 0.85rem; color: var(--text-muted);">יום שלישי, 10 בנובמבר | טרמינל 3</span>
-</div>
-<div style="text-align: left;">
-<span style="font-weight: 700; color: var(--primary);">07:00 ← 12:00</span><br/>
-<span style="font-size: 0.8rem; color: #22c55e; font-weight: 600;">● On Time</span>
-</div>
-</div>
-</div>
-<div style="margin-bottom: 14px;">
-<h3 style="font-size: 1rem; color: #0f172a; margin-bottom: 6px;">🛬 חזור: אבו דאבי (AUH) ← תל אביב (TLV)</h3>
-<div class="flight-row">
-<div>
-<strong>טיסה ישירה: EY 593</strong><br/>
-<span style="font-size: 0.85rem; color: var(--text-muted);">יום שני, 16 בנובמבר | טרמינל A</span>
-</div>
-<div style="text-align: left;">
-<span style="font-weight: 700; color: var(--primary);">21:50 ← 23:30</span><br/>
-<span style="font-size: 0.8rem; color: #22c55e; font-weight: 600;">● On Time</span>
-</div>
-</div>
-</div>
-<h3 style="font-size: 1rem; color: #0f172a; margin-bottom: 6px; margin-top: 10px;">💼 חלוקת הגבלות כבודה ומזוודות בקבוצה:</h3>
-<div class="info-grid">
-<div class="info-item" style="border-right: 4px solid var(--primary-light);">
-<h4>👨‍👩‍👧‍👦 כולם (מבוגרים וילדים)</h4>
-<p style="font-size: 0.9rem; margin-top: 4px;">🎒 <strong>כבודת יד (טרולי):</strong> עד 7 ק"ג לאדם</p>
-<p style="font-size: 0.9rem;">🧳 <strong>כבודה רשומה (בבטן המטוס):</strong> עד 25 ק"ג לאדם</p>
-</div>
-<div class="info-item" style="border-right: 4px solid var(--accent);">
-<h4>👶 תינוק (נועם)</h4>
-<p style="font-size: 0.9rem; margin-top: 4px;">🎒 <strong>כבודת יד (טרולי):</strong> עד 5 ק"ג לאדם</p>
-<p style="font-size: 0.9rem;">🧳 <strong>כבודה רשומה (בבטן המטוס):</strong> עד 10 ק"ג לאדם</p>
-</div>
-</div>
-</div>
-
-<!-- Day 1 -->
-<div class="section-card" id="day1">
-<div class="section-title">📅 יום שלישי, 10.11 | נחיתה, התאקלמות וערב רגוע</div>
-<div class="day-timeline">
-<div class="timeline-item"><div class="timeline-time">06:55</div><div class="timeline-content">המראה מנתב"ג.</div></div>
-<div class="timeline-item"><div class="timeline-time">11:55</div><div class="timeline-content">נחיתה באבו דאבי ונסיעה למלון (כ-15 דקות במונית גדולה).</div></div>
-<div class="timeline-item"><div class="timeline-time">13:30-15:30</div><div class="timeline-content">צ'ק-אין, התארגנות בחדרים וארוחת צהריים קלה במלון <span class="attr-link-tag" onclick="jumpToAttraction('attr-1')">The WB Abu Dhabi</span>.</div></div>
-<div class="timeline-item"><div class="timeline-time">15:30-18:00</div><div class="timeline-content">זמן בריכה ראשון וכיפי לכולם בבריכת המלון המשפחתית למנוחה והתרעננות.</div></div>
-<div class="hotel-box">
-<div class="hotel-title">🏰 אטרקציות ופעילויות בתוך המלון:</div>
-<div class="split-option">🔹 <strong>מועדון הקטנטנים (The Overlook / Kids Club):</strong> מתחם ג'ימבורי וחדרי משחקים ממוזגים ומאובזרים עם הפעלות, יצירה ומשחקים דיגיטליים לגילאים השונים.</div>
-<div class="split-option">🔹 <strong>פגישה עם דמויות:</strong> לאורך כל היום מסתובבות בלובי ובשטחי המלון דמויות לוני טונס וגיבורי על (באגס באני, דאפי דאק, באטמן ועוד) שמצטלמות ומפעילות את הילדים.</div>
-<div class="split-option">🔹 <strong>בריכת הילדים ומתחם המים הפעיל:</strong> בריכה חיצונית רדודה וגדולה עם משחקי מים, מזרקות ומסך ענק שמקרין סרטים מצוירים ישירות על המים.</div>
-</div>
-<div class="timeline-item"><div class="timeline-time">18:30-19:30</div><div class="timeline-content">טיול ערב נעים וקצר עם העגלות לאורך טיילת ה-<a href="https://www.google.com/maps/search/?api=1&amp;query=Yas+Bay+Waterfront+Abu+Dhabi" rel="noopener" target="_blank">Yas Bay</a> המקסימה (נסיעה של 5 דקות בשאטל החינמי או מונית).</div></div>
-<div class="timeline-item"><div class="timeline-time">19:30</div><div class="timeline-content">ארוחת ערב ראשונה במלון <span class="attr-link-tag" onclick="jumpToAttraction('attr-1')">The WB Abu Dhabi</span> והתארגנות לשינה.</div></div>
-</div>
-</div>
-
-<!-- Day 2 -->
-<div class="section-card" id="day2">
-<div class="section-title">📅 יום רביעי, 11.11 | עולם הקסם של Warner Bros. World</div>
-<div class="day-timeline">
-<div class="timeline-item"><div class="timeline-time">08:30-09:45</div><div class="timeline-content">ארוחת בוקר במלון <span class="attr-link-tag" onclick="jumpToAttraction('attr-1')">The WB Abu Dhabi</span> ומפגש בוקר עם הדמויות בלובי.</div></div>
-<div class="timeline-item"><div class="timeline-time">10:00-14:00</div><div class="timeline-content">כניסה לפארק <strong>Warner Bros. World</strong> הממוזג (צמוד למלון במרחק הליכה קצר). בילוי משותף ורגוע בעולם הקטנטנים וחוויית האטרקציות המשפחתיות.</div></div>
-<div class="timeline-item"><div class="timeline-time">14:00-16:00</div><div class="timeline-content">הפסקת צהריים לארוחה קלה וחזרה למנוחת שנ"צ בחדרי המלון הנוחים.</div></div>
-<div class="split-box">
-<div class="split-title">🔀 פיצול חופשי ואטרקציות אחה"צ (16:00-19:00):</div>
-<div class="split-option">⚡ <strong>מי שרוצה יותר אקסטרים:</strong> חוזר לפארק ונהנה מהמתקנים המהירים והמטורפים באזורי גות'האם סיטי ומטרופוליס (באטמן, סופרמן ורכבות ההרים).</div>
-<div class="split-option">🎈 <strong>מי שמעדיף קצב רגוע:</strong> נהנה מחנויות הפארק המעוצבות, מופעי רחוב, או נהנה ב<strong>חדרי המשחקים והג'ימבורי במלון</strong>.</div>
-</div>
-<div class="timeline-item"><div class="timeline-time">19:30</div><div class="timeline-content">ארוחת ערב משפחתית במלון <span class="attr-link-tag" onclick="jumpToAttraction('attr-1')">The WB Abu Dhabi</span>.</div></div>
-</div>
-</div>
-
-<!-- Day 3 -->
-<div class="section-card" id="day3">
-<div class="section-title">📅 יום חמישי, 12.11 | חיות ים ב-SeaWorld ושוק התמרים האותנטי</div>
-<div class="day-timeline">
-<div class="timeline-item"><div class="timeline-time">08:30-09:30</div><div class="timeline-content">ארוחת בוקר במלון <span class="attr-link-tag" onclick="jumpToAttraction('attr-1')">The WB Abu Dhabi</span>.</div></div>
-<div class="timeline-item"><div class="timeline-time">10:00-15:30</div><div class="timeline-content">🐬 <strong>חוויה מלאה ומורחבת ב-SeaWorld (5.5 שעות):</strong> בילוי משפחתי רגוע וכיפי באקווריום הגדול בעולם, צפייה במופע אריות הים ובמופע הדולפינים החגיגי, וביקור בעולם הילדים MicroOcean.</div></div>
-<div class="split-box">
-<div class="split-title">🔀 פיצול גמיש בפארק:</div>
-<div class="split-option">🎢 <strong>מי שרוצה יותר אקסטרים:</strong> מנצל את תחילת היום לעלייה מהירה על רכבת ההרים האקסטרימית <strong>Manta Coaster</strong> לסיבוב או שניים.</div>
-<div class="split-option">🐢 <strong>מי שמעדיף קצב רגוע:</strong> מתחיל ישר בסיור המרהיב באקווריום המרכזי "Endless Ocean" ומנהרת הפינגווינים הנגישה לעגלות.</div>
-</div>
-<div class="timeline-item"><div class="timeline-time">15:30-16:45</div><div class="timeline-content">🛒 <strong>נסיעה קצרצרה לנמל וסיור שווקים:</strong> ביקור ב<strong>שוק התמרים המפורסם (Abu Dhabi Dates Market)</strong> וב<strong>שוק הנמל הממוזג (Mina Market)</strong>. חוויה מושלמת להורים עם טעימות תמרים, קפה ערבי וקניית מארזים ומזכרות בזול משמעותית מהקניונים!</div></div>
-<div class="timeline-item"><div class="timeline-time">17:15-18:30</div><div class="timeline-content">ביקור מרהיב ב<strong>מסגד שייח' זאיד הגדול</strong> בדיוק בשעות השקיעה והחלפת התאורה.</div></div>
-<div class="timeline-item"><div class="timeline-time">19:15</div><div class="timeline-content">חזרה למלון וארוחת ערב משפחתית.</div></div>
-</div>
-</div>
-
-<!-- Day 4 (Friday with Yas Beach) -->
-<div class="section-card" id="day4">
-<div class="section-title">📅 יום שישי, 13.11 | בילוי בחוף הים Yas Beach והיערכות לשבת</div>
-<div class="day-timeline">
-<div class="timeline-item"><div class="timeline-time">08:30-09:30</div><div class="timeline-content">ארוחת בוקר במלון <span class="attr-link-tag" onclick="jumpToAttraction('attr-1')">The WB Abu Dhabi</span>.</div></div>
-<div class="timeline-item"><div class="timeline-time">10:00-13:30</div><div class="timeline-content">🏖️ <strong>בילוי בחוף הים:</strong> ירידה ל-<span class="attr-link-tag" onclick="jumpToAttraction('attr-2')">Yas Beach</span> (כניסה חינם לאורחי המלון כולל שימוש בכיסאות ושמשיות, הגעה קלה בשאטל Yas Express).</div></div>
-<div class="timeline-item"><div class="timeline-time">13:30-16:00</div><div class="timeline-content">חזרה למלון, מקלחות חמות וזמן בריכה רגוע לפני שבת.</div></div>
-<div class="timeline-item"><div class="timeline-time">16:00-17:00</div><div class="timeline-content">התארגנות, מקלחות והלבשה חגיגית לקראת שבת בחדרים.</div></div>
-<div class="timeline-item"><div class="timeline-time">17:21</div><div class="timeline-content">🕯 <strong>כניסת שבת באבו דאבי</strong> (הדלקת נרות בתיאום מול המלון).</div></div>
-<div class="timeline-item"><div class="timeline-time">19:30</div><div class="timeline-content">ארוחת ערב שישי משפחתית וחגיגית בחדר האוכל של המלון.</div></div>
-</div>
-</div>
-
-<!-- Day 5 (Saturday with Waterworld Split) -->
-<div class="section-card" id="day5">
-<div class="section-title">📅 יום שבת, 14.11 | שבת משפחתית, מנוחה ואפשרות לפארק מים</div>
-<div class="day-timeline">
-<div class="timeline-item"><div class="timeline-time">09:00-10:15</div><div class="timeline-content">ארוחת בוקר רגועה וחגיגית בחדר האוכל של המלון.</div></div>
-<div class="split-box">
-<div class="split-title">🔀 פיצול בשבת (התאמה לשומרי שבת):</div>
-<div class="split-option">🕌 <strong>סבא וסבתא והמעדיפים מנוחה:</strong> שבת שקטה ורגועה במלון <span class="attr-link-tag" onclick="jumpToAttraction('attr-1')">The WB Abu Dhabi</span>, סיורים רגליים במדשאות ומנוחה בחדרים.</div>
-<div class="split-option">🌊 <strong>החלק שרוצה אקסטרים:</strong> בילוי ב-<span class="attr-link-tag" onclick="jumpToAttraction('attr-5')">Yas Waterworld Abu Dhabi</span> (פארק המים המדהים עם מגלשות המהירות).</div>
-</div>
-<div class="timeline-item"><div class="timeline-time">13:00-14:30</div><div class="timeline-content">הפסקת צהריים: מנוחה בחדרים או ארוחה קלה מהאספקה שהוכנה מראש.</div></div>
-<div class="timeline-item"><div class="timeline-time">15:00-17:00</div><div class="timeline-content">🎈 <strong>פעילות אחה"צ:</strong> איחוד כוחות בג'ימבורי (Kids Club) או בריכת המלון לאחר חזרת מבקרי פארק המים.</div></div>
-<div class="timeline-item"><div class="timeline-time">18:14</div><div class="timeline-content">⭐ <strong>יציאת שבת באבו דאבי</strong> והבדלה בחדרים.</div></div>
-<div class="timeline-item"><div class="timeline-time">19:30</div><div class="timeline-content">ארוחת ערב חמה בחדר האוכל של המלון.</div></div>
-</div>
-</div>
-
-<!-- Day 6 -->
-<div class="section-card" id="day6">
-<div class="section-title">📅 יום ראשון, 15.11 | שופינג ב-Yas Mall ורכבות הרים בפרארי</div>
-<div class="day-timeline">
-<div class="timeline-item"><div class="timeline-time">09:00-10:00</div><div class="timeline-content">ארוחת בוקר במלון <span class="attr-link-tag" onclick="jumpToAttraction('attr-1')">The WB Abu Dhabi</span>.</div></div>
-<div class="timeline-item"><div class="timeline-time">10:30-15:30</div><div class="timeline-content">הגעה למתחם המשולב המחובר של Ferrari World וקניון יאס (5 דקות נסיעה בשאטל).</div></div>
-<div class="split-box">
-<div class="split-title">🔀 פיצול קניון ופארק (11:00-15:30):</div>
-<div class="split-option">🏎 <strong>מי שרוצה יותר אקסטרים:</strong> נכנס לאקסטרים ולרכבות ההרים המהירות בעולם ב-<strong>Ferrari World</strong>.</div>
-<div class="split-option">🛍 <strong>מי שמעדיף קצב רגוע / קניות:</strong> נהנה משופינג חופשי, בתי קפה מעולים וארוחת צהריים משפחתית בקניון הממוזג והענק <strong>Yas Mall</strong>.</div>
-</div>
-<div class="timeline-item"><div class="timeline-time">16:00-19:30</div><div class="timeline-content">חזרה למלון <span class="attr-link-tag" onclick="jumpToAttraction('attr-1')">The WB Abu Dhabi</span> למנוחת אחה"צ, בילוי בג'ימבורי המלון או קפיצה לבריכת המים המעולה.</div></div>
-<div class="timeline-item"><div class="timeline-time">19:30</div><div class="timeline-content">ארוחת ערב מסכמת וחגיגית במלון.</div></div>
-</div>
-</div>
-
-<!-- Day 7 -->
-<div class="section-card" id="day7">
-<div class="section-title">📅 יום שני, 16.11 | ארמון הנשיא, שוק מדינת זאיד הזול וחזרה הביתה</div>
-<div class="day-timeline">
-<div class="timeline-item"><div class="timeline-time">08:30-10:00</div><div class="timeline-content">ארוחת בוקר אחרונה במלון <span class="attr-link-tag" onclick="jumpToAttraction('attr-1')">The WB Abu Dhabi</span>, אריזת מזוודות, ביצוע צ'ק-אאוט והשארת המזוודות בשמירת החפצים במלון.</div></div>
-<div class="timeline-item"><div class="timeline-time">10:30-12:15</div><div class="timeline-content">סיור מדהים ונגיש ב<strong>ארמון הנשיא המפואר והממוזג (Qasr Al Watan)</strong> – חוויה ארכיטקטונית ותרבותית מרשימה ביותר להורים ולכל המשפחה.</div></div>
-<div class="split-box">
-<div class="split-title">🔀 פיצול קניות אחרון (12:30-14:45):</div>
-<div class="split-option">🛍 <strong>מי שרוצה שוק אותנטי וזול:</strong> נוסע ל<strong>מרכז הקניות ושוק מדינת זאיד (Madinat Zayed Shopping Centre)</strong> – שוק מקורה ענק וזול בטירוף, מלא בבגדים, צעצועים וקומת זהב (Gold Centre) מדהימה ולא תיירותית למיקוח.</div>
-<div class="split-option">💎 <strong>מי שרוצה קניון מודרני ומותגים:</strong> נוסע לקניון היוקרה המרשים <strong>The Galleria Al Maryah Island</strong> לשופינג מרכזי וארוחת צהריים חופשית במתחם המסעדות המצוין שלו.</div>
-</div>
-<div class="timeline-item"><div class="timeline-time">15:00-18:00</div><div class="timeline-content">חזרה למלון יאס <span class="attr-link-tag" onclick="jumpToAttraction('attr-1')">The WB Abu Dhabi</span>, מנוחה והתרעננות בלובי המפנק או בחדרי המשחקים, ואיסוף המזוודות מהשמירה.</div></div>
-<div class="timeline-item"><div class="timeline-time">18:30</div><div class="timeline-content">נסיעה קצרה (15 דקות) לשדה התעופה של אבו דאבי.</div></div>
-<div class="timeline-item"><div class="timeline-time">21:50</div><div class="timeline-content">המראה חזרה לישראל (נחיתה ב-23:30).</div></div>
-</div>
-</div>
-
-<!-- Shabbat Info Section -->
-<div class="section-card" id="shabbat-sec">
-<h2 class="section-title">🕌 הערכות מיוחדת לשבת כשרה (מידע חשוב להורים)</h2>
-<div class="list-box">
-<div class="list-item">🔹 <span>קשר עם בית חב"ד:</span> הקהילה היהודית באיחוד האמירויות (בהנהגת הרב לוי דוכמן) זמינה לכל עזרה, אספקת חלות, יין וסעודות שבת כשרות. טלפון ליצירת קשר ותיאום מראש: <strong>971-56-958-2971+</strong>.</div>
-<div class="list-item">🔹 <span>מפתח פיזי לשבת:</span> מומלץ לבקש מצוות הקבלה של מלון <span class="attr-link-tag" onclick="jumpToAttraction('attr-1')">The WB Abu Dhabi</span> כבר בעת הצ'ק-אין (או מספר ימים לפני הגעתכם דרך ההודעות ב-Booking) <strong>מפתח מכני פיזי</strong> לחדרים של ההורים/המשפחה כדי להימנע משימוש בכרטיס אלקטרוני במהלך השבת.</div>
-<div class="list-item">🔹 <span>אוכל כשר ושבתון:</span> התוכנית מותאמת באופן מלא לשהייה נינוחה ביום שבת במלון, עם טיולים רגליים וארוחות קרות/אספקה כשרה בחדר האוכל או בחדרים.</div>
-</div>
-</div>
-
-<!-- Attractions Section -->
-<div class="section-card" id="links-sec">
-<h2 class="section-title">📍 אטרקציות ונקודות עניין (כולל Yas Bay)</h2>
-<div class="attractions-list">
-<div class="attraction-card" id="attr-1">
-<img alt="1. The WB Abu Dhabi Hotel" class="attraction-img" loading="lazy" referrerpolicy="no-referrer" src="https://commons.wikimedia.org/wiki/Special:FilePath/The_WB_Abu_Dhabi,_Curio_Collection_By_Hilton_02.jpg"/>
-<div class="attraction-body">
-<div class="attraction-header-row"><span class="attraction-title">1. The WB Abu Dhabi Hotel</span><a class="btn-maps" href="https://maps.google.com/?q=The+WB+Abu+Dhabi+Hotel" target="_blank">ניווט 🗺️</a></div>
-<div class="attraction-snippet">מלון Warner Bros. הרשמי באי יאס, עם עיצוב בהשראת עולמות הקולנוע והאנימציה של האולפן.</div>
-<button class="toggle-details-btn" onclick="toggleDetails(this)">📖 מידע מלא ▾</button>
-<div class="attraction-details">מלון The WB Abu Dhabi הוא מלון 5 כוכבים של רשת Hilton הממוקם מול Warner Bros. World. העיצוב משלב פריטים ודמויות מעולמות Warner Bros., ובשטחים הציבוריים אפשר לפגוש דמויות מוכרות. במלון בריכות, מועדון ילדים, מסעדות ומתחמי בילוי – כך שהוא עצמו חלק מחוויית החופשה ולא רק מקום לינה.</div>
-</div>
-</div>
-<div class="attraction-card" id="attr-2"><div class="attraction-img-placeholder">2. Yas Beach חינם לאורחי WB</div>
-<div class="attraction-body">
-<div class="attraction-header-row"><span class="attraction-title">2. Yas Beach <span class="badge">חינם לאורחי WB</span></span><a class="btn-maps" href="https://maps.google.com/?q=Yas+Beach+Abu+Dhabi" target="_blank">ניווט 🗺️</a></div>
-<div class="attraction-snippet">חוף באי יאס עם חול, מים צלולים ואזורי ישיבה – אפשרות ליום רגוע מחוץ לפארקים.</div>
-<button class="toggle-details-btn" onclick="toggleDetails(this)">📖 מידע מלא ▾</button>
-<div class="attraction-details">Yas Beach הוא חוף פנאי באי יאס, עם רצועת חול, מי ים, בריכה, מיטות שיזוף ושירותי חוף. האווירה רגועה יותר מזו של פארקי השעשועים ומתאימה לבילוי של כמה שעות. כאורחי מלון The WB Abu Dhabi תיהנו מכניסה חינם לחוף ומשירותי החוף שלו.</div>
-</div>
-</div>
-<div class="attraction-card" id="attr-3">
-<img alt="3. Warner Bros. World" class="attraction-img" loading="lazy" referrerpolicy="no-referrer" src="https://commons.wikimedia.org/wiki/Special:FilePath/Warner_Bros._World_Abu_Dhabi_03.jpg"/>
-<div class="attraction-body">
-<div class="attraction-header-row"><span class="attraction-title">3. Warner Bros. World</span><a class="btn-maps" href="https://maps.google.com/?q=Warner+Bros+World+Abu+Dhabi" target="_blank">ניווט 🗺️</a></div>
-<div class="attraction-snippet">פארק השעשועים המקורה של Warner Bros. עם אזורים המבוססים על דמויות וסרטים מוכרים.</div>
-<button class="toggle-details-btn" onclick="toggleDetails(this)">📖 מידע מלא ▾</button>
-<div class="attraction-details">Warner Bros. World Abu Dhabi הוא פארק מקורה וממוזג המחולק לשישה אזורי נושא. המבקרים עוברים בין Gotham City של באטמן, Metropolis של סופרמן, Cartoon Junction, Bedrock, Dynamite Gulch ו-Warner Bros. Plaza. יש בו מתקנים, חוויות אינטראקטיביות, מופעים ומפגשים עם דמויות – מגוון שמתאים גם לילדים צעירים וגם למבוגרים.</div>
-</div>
-</div>
-<div class="attraction-card" id="attr-4">
-<img alt="4. SeaWorld Abu Dhabi" class="attraction-img" loading="lazy" referrerpolicy="no-referrer" src="https://commons.wikimedia.org/wiki/Special:FilePath/Sea_world_yas_island.jpg"/>
-<div class="attraction-body">
-<div class="attraction-header-row"><span class="attraction-title">4. SeaWorld Abu Dhabi</span><a class="btn-maps" href="https://maps.google.com/?q=SeaWorld+Abu+Dhabi" target="_blank">ניווט 🗺️</a></div>
-<div class="attraction-snippet">פארק ימי מקורה המחולק לעולמות נושא, עם אקווריומים ובעלי חיים ימיים.</div>
-<button class="toggle-details-btn" onclick="toggleDetails(this)">📖 מידע מלא ▾</button>
-<div class="attraction-details">SeaWorld Abu Dhabi נמצא באי יאס ונבנה סביב שמונה אזורי חוויה שמציגים סביבות ימיות שונות. אפשר להכיר בעלי חיים ימיים, לצפות באקווריומים גדולים וללמוד על מערכות אקולוגיות ושימור האוקיינוסים. זהו מתחם מקורה גדול, ולכן מתאים גם ליום חם. מומלץ לבדוק מראש את זמני המפגשים והפעילויות הפעילים ביום הביקור.</div>
-</div>
-</div>
-<div class="attraction-card" id="attr-5">
-<img alt="5. Yas Waterworld Abu Dhabi" class="attraction-img" loading="lazy" referrerpolicy="no-referrer" src="https://commons.wikimedia.org/wiki/Special:FilePath/Yas_Waterworld_Abu_Dhabi_2.jpg"/>
-<div class="attraction-body">
-<div class="attraction-header-row"><span class="attraction-title">5. Yas Waterworld Abu Dhabi</span><a class="btn-maps" href="https://maps.google.com/?q=Yas+Waterworld+Abu+Dhabi" target="_blank">ניווט 🗺️</a></div>
-<div class="attraction-snippet">פארק מים בסגנון אמירתי עם מגלשות, בריכות ואטרקציות למשפחות.</div>
-<button class="toggle-details-btn" onclick="toggleDetails(this)">📖 מידע מלא ▾</button>
-<div class="attraction-details">Yas Waterworld הוא פארק מים גדול באי יאס, המעוצב סביב סיפור פנינת הפנינים של האמירויות. הפארק כולל מגלשות בדרגות אדרנלין שונות, בריכת גלים, נהר רגוע, אזורי משחק לילדים קטנים ומתקנים משפחתיים. כדאי לתכנן את היום לפי גיל וגובה המשתתפים ולבדוק מראש אילו מתקנים מתאימים לכל ילד.</div>
-</div>
-</div>
-<div class="attraction-card" id="attr-6">
-<img alt="6. Ferrari World Abu Dhabi" class="attraction-img" loading="lazy" referrerpolicy="no-referrer" src="https://commons.wikimedia.org/wiki/Special:FilePath/Ferrari_World_-_Abu_Dhabi.jpg"/>
-<div class="attraction-body">
-<div class="attraction-header-row"><span class="attraction-title">6. Ferrari World Abu Dhabi</span><a class="btn-maps" href="https://maps.google.com/?q=Ferrari+World+Abu+Dhabi" target="_blank">ניווט 🗺️</a></div>
-<div class="attraction-snippet">פארק בנושא פרארי, עם רכבות הרים, סימולטורים ותצוגות מעולם המרוצים.</div>
-<button class="toggle-details-btn" onclick="toggleDetails(this)">📖 מידע מלא ▾</button>
-<div class="attraction-details">Ferrari World Abu Dhabi הוא פארק מקורה באי יאס המזוהה עם גג אדום עצום וסמל פרארי. לצד מתקני אדרנלין ורכבות הרים, יש בו סימולטורי נהיגה, חוויות משפחתיות, תצוגות וסיפורים מעולם המותג והמרוצים. לא כל המתקנים מתאימים לכל גיל או גובה, ולכן כדאי לבדוק את מגבלות הגובה לפני שמגיעים.</div>
-</div>
-</div>
-<div class="attraction-card" id="attr-7">
-<img alt="7. Yas Mall" class="attraction-img" loading="lazy" referrerpolicy="no-referrer" src="https://commons.wikimedia.org/wiki/Special:FilePath/Yas_Mall_Front.jpg"/>
-<div class="attraction-body">
-<div class="attraction-header-row"><span class="attraction-title">7. Yas Mall</span><a class="btn-maps" href="https://maps.google.com/?q=Yas+Mall+Abu+Dhabi" target="_blank">ניווט 🗺️</a></div>
-<div class="attraction-snippet">קניון מרכזי באי יאס, סמוך לפארקי השעשועים ול-Ferrari World.</div>
-<button class="toggle-details-btn" onclick="toggleDetails(this)">📖 מידע מלא ▾</button>
-<div class="attraction-details">Yas Mall הוא אחד ממרכזי הקניות והבילוי הגדולים באבו דאבי. הוא כולל מגוון רחב של חנויות אופנה, מותגים בינלאומיים, מסעדות, בתי קפה ואפשרויות בילוי לכל המשפחה. מיקומו ליד Ferrari World מאפשר לשלב קניות או ארוחה עם ביקור בפארק, בלי להתרחק מאזור יאס.</div>
-</div>
-</div>
-<div class="attraction-card" id="attr-8"><div class="attraction-img-placeholder">8. Abu Dhabi Dates Market</div>
-<div class="attraction-body">
-<div class="attraction-header-row"><span class="attraction-title">8. Abu Dhabi Dates Market</span><a class="btn-maps" href="https://maps.google.com/?q=Abu+Dhabi+Dates+Market" target="_blank">ניווט 🗺️</a></div>
-<div class="attraction-snippet">מתחם שוק המתמחה בתמרים ובמוצרים מקומיים – עצירה קצרה לטעימות ולקניות.</div>
-<button class="toggle-details-btn" onclick="toggleDetails(this)">📖 מידע מלא ▾</button>
-<div class="attraction-details">שוק התמרים של אבו דאבי הוא מקום טוב להכיר את אחד המוצרים המזוהים ביותר עם המטבח והאירוח המקומיים. בדוכנים ובחנויות אפשר למצוא זנים שונים של תמרים, תמרים ממולאים ומארזים למתנה. מומלץ להשוות בין כמה חנויות, לשאול על מקור התמרים ולטעום לפני שקונים.</div>
-</div>
-</div>
-<div class="attraction-card" id="attr-9"><div class="attraction-img-placeholder">9. Mina Market</div>
-<div class="attraction-body">
-<div class="attraction-header-row"><span class="attraction-title">9. Mina Market</span><a class="btn-maps" href="https://maps.google.com/?q=Mina+Market+Abu+Dhabi" target="_blank">ניווט 🗺️</a></div>
-<div class="attraction-snippet">אזור השווקים ההיסטורי של Mina Zayed, עם שווקי דגים, פירות, ירקות וחנויות מסורתיות.</div>
-<button class="toggle-details-btn" onclick="toggleDetails(this)">📖 מידע מלא ▾</button>
-<div class="attraction-details">אזור Mina Zayed הוא מתחם מסחרי ותיק ליד הנמל, שמציג צד מקומי ופחות מלוטש של אבו דאבי. בשוק הדגים אפשר לראות את שלל הדיג שמגיע מדי בוקר, ובסביבה נמצאים גם שוק פירות וירקות, חנויות ותיקות ובתי קפה. זהו ביקור צבעוני ואותנטי יותר מקניון, וכדאי להגיע בשעות הפעילות של השווקים.</div>
-</div>
-</div>
-<div class="attraction-card" id="attr-10">
-<img alt="10. מסגד שייח' זאיד הגדול" class="attraction-img" loading="lazy" referrerpolicy="no-referrer" src="https://commons.wikimedia.org/wiki/Special:FilePath/The_Grand_Mosque-Abu_Dhabi.jpg"/>
-<div class="attraction-body">
-<div class="attraction-header-row"><span class="attraction-title">10. מסגד שייח' זאיד הגדול</span><a class="btn-maps" href="https://maps.google.com/?q=Sheikh+Zayed+Grand+Mosque" target="_blank">ניווט 🗺️</a></div>
-<div class="attraction-snippet">אחד המסגדים המרשימים בעולם, המזוהה עם כיפות לבנות, שיש ועיטורים מפורטים.</div>
-<button class="toggle-details-btn" onclick="toggleDetails(this)">📖 מידע מלא ▾</button>
-<div class="attraction-details">מסגד שייח׳ זאיד הגדול הוא אחד מסמליה הבולטים של אבו דאבי. המתחם משלב שיש לבן, כיפות רבות, עיטורי פרחים, פסיפסים, נברשות גדולות ושטיח תפילה עצום. הביקור מאפשר להתרשם מהאדריכלות ומהתרבות המקומית; יש להקפיד על לבוש צנוע ועל כללי הביקור, ולבדוק מראש את שעות הכניסה וההרשמה.</div>
-</div>
-</div>
-<div class="attraction-card" id="attr-11">
-<img alt="11. ארמון הנשיא: Qasr Al Watan" class="attraction-img" loading="lazy" referrerpolicy="no-referrer" src="https://commons.wikimedia.org/wiki/Special:FilePath/Qasr_Al_Watan,_Abu_Dhabi_(P1100929-RR).jpg"/>
-<div class="attraction-body">
-<div class="attraction-header-row"><span class="attraction-title">11. ארמון הנשיא: Qasr Al Watan</span><a class="btn-maps" href="https://maps.google.com/?q=Qasr+Al+Watan" target="_blank">ניווט 🗺️</a></div>
-<div class="attraction-snippet">ארמון הנשיאות של איחוד האמירויות, הפתוח למבקרים ומציג אדריכלות, אמנות ומורשת.</div>
-<button class="toggle-details-btn" onclick="toggleDetails(this)">📖 מידע מלא ▾</button>
-<div class="attraction-details">Qasr Al Watan הוא ארמון נשיאותי פעיל שנפתח לקהל כחוויה תרבותית. המבקרים יכולים להיכנס לאולמות רחבי ידיים, להתרשם מכיפות, פסיפסים, עיטורים ועבודות אמנות, ולבקר בתערוכות המציגות את המורשת, הממשל והידע של האמירויות. בשעות הערב מתקיים לעיתים מופע אור וקול בחזית הארמון, בהתאם ללוח הפעילות.</div>
-</div>
-</div>
-<div class="attraction-card" id="attr-12"><div class="attraction-img-placeholder">12. שוק מדינת זאיד הזול</div>
-<div class="attraction-body">
-<div class="attraction-header-row"><span class="attraction-title">12. שוק מדינת זאיד הזול</span><a class="btn-maps" href="https://maps.google.com/?q=Madinat+Zayed+Shopping+Centre" target="_blank">ניווט 🗺️</a></div>
-<div class="attraction-snippet">מרכז קניות ותיק עם מאות חנויות, ולצדו Gold Centre לתכשיטי זהב ואבני חן.</div>
-<button class="toggle-details-btn" onclick="toggleDetails(this)">📖 מידע מלא ▾</button>
-<div class="attraction-details">Madinat Zayed Shopping Centre מציע חוויית קניות מקומית יותר מקניוני היוקרה. במקום פועלות חנויות אופנה, בשמים, מוצרים לבית ומתנות, ולצדו Gold Centre המתמחה בזהב, יהלומים ופנינים. זהו מקום מתאים לשיטוט ולחיפוש פריטים במחירים ובסגנונות מגוונים; מומלץ להשוות מחירים ולבדוק היטב את פרטי הרכישה.</div>
-</div>
-</div>
-<div class="attraction-card" id="attr-13">
-<img alt="13. The Galleria Mall" class="attraction-img" loading="lazy" referrerpolicy="no-referrer" src="https://commons.wikimedia.org/wiki/Special:FilePath/The_Galleria_Al_Maryah_Island,.jpg"/>
-<div class="attraction-body">
-<div class="attraction-header-row"><span class="attraction-title">13. The Galleria Mall</span><a class="btn-maps" href="https://maps.google.com/?q=The+Galleria+Al+Maryah+Island" target="_blank">ניווט 🗺️</a></div>
-<div class="attraction-snippet">קניון יוקרתי ומודרני באי Al Maryah, עם מותגי אופנה, מסעדות ונוף למים.</div>
-<button class="toggle-details-btn" onclick="toggleDetails(this)">📖 מידע מלא ▾</button>
-<div class="attraction-details">The Galleria Al Maryah Island הוא מרכז קניות, אוכל ובילוי מודרני על קו המים. הוא משלב מותגי אופנה בינלאומיים, חנויות יוקרה, מסעדות ובתי קפה, לצד חללים פתוחים ונוף למרינה. מתאים למי שמחפש חוויית קניות מעוצבת יותר או ארוחה בא אחד מאזורי הבילוי של האי.</div>
-</div>
-</div>
-<div class="attraction-card"><div class="attraction-body"><div class="attraction-header-row"><div class="attraction-title">Yas Bay Waterfront</div><a class="btn-maps" href="https://www.google.com/maps/search/?api=1&amp;query=Yas+Bay+Waterfront+Abu+Dhabi" rel="noopener" target="_blank">ניווט 🗺️</a></div><div class="attraction-snippet">טיילת נעימה לבילוי ערב, עם מסעדות, בתי קפה ונוף למים.</div></div></div>
-</div>
-</div>
-</div>
-
-<!-- Bottom Navigation Bar -->
-<div class="bottom-nav">
-<button class="bottom-nav-btn active" onclick="switchCategory('home')"><span class="icon">🏠</span><span>ראשי</span></button>
-<button class="bottom-nav-btn" onclick="switchCategory('daily')"><span class="icon">📅</span><span>לו״ז יומי</span></button>
-<button class="bottom-nav-btn" onclick="switchCategory('flights')"><span class="icon">✈️</span><span>טיסות</span></button>
-<button class="bottom-nav-btn" onclick="switchCategory('attractions')"><span class="icon">📍</span><span>אטרקציות</span></button>
-<button class="bottom-nav-btn" onclick="switchCategory('shabbat')"><span class="icon">🕌</span><span>שבת</span></button>
-</div>
-
 <script>
         let currentCategory = 'home';
+        let isNavigatingHistory = false; // דגל למניעת כפילות בעת ניווט היסטוריה
+
         function updateTopTabs() {
             const tabs = document.getElementById('top-tabs');
             tabs.style.display = currentCategory === 'daily' ? 'flex' : 'none';
         }
+
         function setBottomActive(category) {
             document.querySelectorAll('.bottom-nav-btn').forEach((btn, index) => {
                 btn.classList.toggle('active', ['home','daily','flights','attractions','shabbat'][index] === category);
             });
         }
+
         function showSection(id) {
             document.querySelectorAll('.section-card').forEach(sec => sec.classList.remove('active-section'));
             const target = document.getElementById(id);
             if (target) target.classList.add('active-section');
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
-        function switchCategory(category) {
+
+        function switchCategory(category, pushToHistory = true) {
             currentCategory = category;
             setBottomActive(category);
             updateTopTabs();
             const section = { home: 'home-sec', daily: 'day1', flights: 'flights-sec', attractions: 'links-sec', shabbat: 'shabbat-sec' }[category];
             showSection(section);
             if (category === 'daily') setDayActive('day1');
+
+            // שמירת המצב בהיסטוריית הדפדפן
+            if (pushToHistory && !isNavigatingHistory) {
+                history.pushState({ type: 'category', category: category, section: section }, '', '#' + category);
+            }
         }
-        function switchDay(id) {
+
+        function switchDay(id, pushToHistory = true) {
             if (currentCategory !== 'daily') return;
             showSection(id);
             setDayActive(id);
+
+            // שמירת יום ספציפי בהיסטוריה
+            if (pushToHistory && !isNavigatingHistory) {
+                history.pushState({ type: 'day', dayId: id }, '', '#' + id);
+            }
         }
+
         function setDayActive(id) {
             document.querySelectorAll('.tab-btn').forEach(btn => {
-                btn.classList.toggle('active', btn.getAttribute('onclick') === `switchDay('${id}')`);
+                btn.classList.toggle('active', btn.getAttribute('onclick').includes(`switchDay('${id}')`));
             });
         }
+
         function toggleDetails(btn) {
             const details = btn.nextElementSibling;
             if (details.style.display === 'block') {
@@ -779,8 +61,12 @@
                 btn.innerHTML = 'סגור מידע ▴';
             }
         }
-        function jumpToAttraction(attrId) {
-            switchCategory('attractions');
+
+        function jumpToAttraction(attrId, pushToHistory = true) {
+            const previousState = { type: 'category', category: currentCategory, section: document.querySelector('.section-card.active-section')?.id };
+            
+            switchCategory('attractions', false);
+
             setTimeout(() => {
                 const card = document.getElementById(attrId);
                 if (card) {
@@ -793,15 +79,42 @@
                         if (detailsBtn) detailsBtn.innerHTML = 'סגור מידע ▴';
                     }
                     setTimeout(() => card.classList.remove('highlight'), 2500);
+
+                    // שמירת הקפיצה לאטרקציה בהיסטוריית הניווט
+                    if (pushToHistory && !isNavigatingHistory) {
+                        history.pushState({ type: 'attraction', attrId: attrId }, '', '#' + attrId);
+                    }
                 }
             }, 100);
         }
+
+        // האזנה ללחיצה על כפתור "חזור / קדימה" בדפדפן ובמכשיר הנייד
+        window.addEventListener('popstate', (event) => {
+            isNavigatingHistory = true;
+            if (event.state) {
+                const state = event.state;
+                if (state.type === 'category') {
+                    switchCategory(state.category, false);
+                } else if (state.type === 'day') {
+                    if (currentCategory !== 'daily') switchCategory('daily', false);
+                    switchDay(state.dayId, false);
+                } else if (state.type === 'attraction') {
+                    jumpToAttraction(state.attrId, false);
+                }
+            } else {
+                // חזרה לברירת המחדל (דף ראשי)
+                switchCategory('home', false);
+            }
+            isNavigatingHistory = false;
+        });
+
         document.addEventListener('DOMContentLoaded', () => {
             currentCategory = 'home';
             setBottomActive('home');
             updateTopTabs();
             showSection('home-sec');
+
+            // הגדרת מצב התחלתי להיסטוריה
+            history.replaceState({ type: 'category', category: 'home', section: 'home-sec' }, '', '#home');
         });
 </script>
-</body>
-</html>
