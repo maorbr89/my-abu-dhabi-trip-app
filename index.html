@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html dir="rtl" lang="he">
 <head>
 <meta charset="utf-8"/>
@@ -340,7 +339,6 @@
             margin-right: 4px;
         }
 
-
         .home-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 14px; }
         .home-tile { background: #f8fafc; border: 1px solid var(--border); border-radius: 10px; padding: 12px; }
         .home-tile strong { display: block; color: var(--primary); margin-bottom: 3px; }
@@ -399,24 +397,35 @@
             background: linear-gradient(135deg, #1e3a8a, #0284c7);
         }
         #top-tabs { display: flex; }
+
+        .timeline-content { line-height: 1.65; }
+        .timeline-content strong { font-weight: 700; }
+        .timeline-item { align-items: flex-start; }
+        .split-box { margin: 10px 0; padding: 12px; }
+        .split-title { font-weight: 700; color: #166534; margin-bottom: 6px; }
+        .split-option { margin: 6px 0; line-height: 1.6; }
+        .hotel-box { margin: 10px 0; }
+        .hotel-title { font-weight: 700; color: #c2410c; margin-bottom: 6px; }
+        .list-box { background: #f8fafc; border: 1px solid var(--border); border-radius: 10px; padding: 12px; }
+        .list-item { margin: 8px 0; line-height: 1.6; }
 </style>
 </head>
 <body>
 <div class="app-container">
 <div class="header">
 <h1>אבו דאבי - חופשה משפחתית מורחבת</h1>
-<p>10.11.2026 – 16.11.2026 | מלון The WB Abu Dhabi (חצי פנסיון)</p>
+<p>10.11.2026 – 16.11.2026 | מלון <span class="attr-link-tag" onclick="jumpToAttraction('attr-1')">The WB Abu Dhabi</span> (חצי פנסיון)</p>
 <p style="margin-top: 4px; font-size: 0.85rem; opacity: 0.85;">PNR הזמנת טיסה: <strong>9XO92L</strong></p>
 </div>
 <div class="nav-tabs" id="top-tabs"><button class="tab-btn active" onclick="switchDay('day1')">שלישי 10.11</button><button class="tab-btn" onclick="switchDay('day2')">רביעי 11.11</button><button class="tab-btn" onclick="switchDay('day3')">חמישי 12.11</button><button class="tab-btn" onclick="switchDay('day4')">שישי 13.11</button><button class="tab-btn" onclick="switchDay('day5')">שבת 14.11</button><button class="tab-btn" onclick="switchDay('day6')">ראשון 15.11</button><button class="tab-btn" onclick="switchDay('day7')">שני 16.11</button></div>
-<!-- 1. Flights -->
 
+<!-- Home Section -->
 <div class="section-card active-section" id="home-sec">
 <h2 class="section-title">🌴 ברוכים הבאים לחופשה באבו דאבי</h2>
 <p class="home-intro">שבוע של חופשה משפחתית באי יאס ובאבו דאבי, עם זמן למלון, פארקים, שווקים וקצת מנוחה.</p>
 <div class="home-grid">
 <div class="home-tile"><strong>📅 תאריכים</strong>10–16 בנובמבר 2026</div>
-<div class="home-tile"><strong>🏨 מלון</strong>The WB Abu Dhabi</div>
+<div class="home-tile"><strong>🏨 מלון</strong><span class="attr-link-tag" onclick="jumpToAttraction('attr-1')">The WB Abu Dhabi</span></div>
 <div class="home-tile"><strong>✈️ טיסת הלוך</strong>שלישי, 10.11 · EY 594</div>
 <div class="home-tile"><strong>✈️ טיסת חזור</strong>שני, 16.11 · EY 593</div>
 </div>
@@ -425,6 +434,7 @@
 <p style="font-size:.82rem;color:var(--text-muted);margin-top:12px;text-align:center;">בחרו קטגוריה בתפריט התחתון כדי להתחיל.</p>
 </div>
 
+<!-- Flights Section -->
 <div class="section-card" id="flights-sec">
 <h2 class="section-title">✈️ פרטי טיסות ומדיניות כבודה (אתיחאד איירווייז)</h2>
 <div style="margin-bottom: 14px;">
@@ -467,101 +477,133 @@
 </div>
 </div>
 </div>
-<!-- 2. Day 1 -->
+
+<!-- Day 1 -->
 <div class="section-card" id="day1">
-<h2 class="section-title">📅 יום שלישי, 10.11 | נחיתה, התאקלמות וערב רגוע</h2>
+<div class="section-title">📅 יום שלישי, 10.11 | נחיתה, התאקלמות וערב רגוע</div>
 <div class="day-timeline">
-<div class="timeline-item"><div class="timeline-time">07:00</div><div class="timeline-content"><label class="checkbox-container"><input type="checkbox"/><div><strong>המראה מנתב"ג</strong> בטיסת אתיחאד EY 594.</div></label></div></div>
-<div class="timeline-item"><div class="timeline-time">12:00</div><div class="timeline-content"><label class="checkbox-container"><input type="checkbox"/><div><strong>נחיתה באבו דאבי (Terminal A)</strong> ונסיעה למלון.</div></label></div></div>
-<div class="timeline-item"><div class="timeline-time">13:30-15:30</div><div class="timeline-content"><label class="checkbox-container"><input type="checkbox"/><div><strong>צ'ק-אין:</strong> קבלת חדרים במלון <span class="attr-link-tag" onclick="jumpToAttraction('attr-1')">The WB Abu Dhabi</span>.</div></label></div></div>
-<div class="timeline-item"><div class="timeline-time">15:30-18:00</div><div class="timeline-content"><label class="checkbox-container"><input type="checkbox"/><div><strong>זמן בריכה:</strong> התרעננות ראשונה בבריכת המלון.</div></label></div></div>
+<div class="timeline-item"><div class="timeline-time">06:55</div><div class="timeline-content">המראה מנתב"ג.</div></div>
+<div class="timeline-item"><div class="timeline-time">11:55</div><div class="timeline-content">נחיתה באבו דאבי ונסיעה למלון (כ-15 דקות במונית גדולה).</div></div>
+<div class="timeline-item"><div class="timeline-time">13:30-15:30</div><div class="timeline-content">צ'ק-אין, התארגנות בחדרים וארוחת צהריים קלה במלון <span class="attr-link-tag" onclick="jumpToAttraction('attr-1')">The WB Abu Dhabi</span>.</div></div>
+<div class="timeline-item"><div class="timeline-time">15:30-18:00</div><div class="timeline-content">זמן בריכה ראשון וכיפי לכולם בבריכת המלון המשפחתית למנוחה והתרעננות.</div></div>
 <div class="hotel-box">
-<div class="hotel-title">🏰 אטרקציות במלון:</div>
-<div style="font-size: 0.9rem; margin-bottom: 4px;">🔹 <strong>Kids Club:</strong> ג'ימבורי ומשחקים ממוזגים.</div>
-<div style="font-size: 0.9rem; margin-bottom: 4px;">🔹 <strong>דמויות:</strong> לוני טונס וגיבורי על בלובי.</div>
-<div style="font-size: 0.9rem;">🔹 <strong>בריכת ילדים:</strong> מתחם מים והקרנת סרטים.</div>
+<div class="hotel-title">🏰 אטרקציות ופעילויות בתוך המלון:</div>
+<div class="split-option">🔹 <strong>מועדון הקטנטנים (The Overlook / Kids Club):</strong> מתחם ג'ימבורי וחדרי משחקים ממוזגים ומאובזרים עם הפעלות, יצירה ומשחקים דיגיטליים לגילאים השונים.</div>
+<div class="split-option">🔹 <strong>פגישה עם דמויות:</strong> לאורך כל היום מסתובבות בלובי ובשטחי המלון דמויות לוני טונס וגיבורי על (באגס באני, דאפי דאק, באטמן ועוד) שמצטלמות ומפעילות את הילדים.</div>
+<div class="split-option">🔹 <strong>בריכת הילדים ומתחם המים הפעיל:</strong> בריכה חיצונית רדודה וגדולה עם משחקי מים, מזרקות ומסך ענק שמקרין סרטים מצוירים ישירות על המים.</div>
 </div>
-<div class="timeline-item" style="margin-top:10px;"><div class="timeline-time">18:30-19:30</div><div class="timeline-content"><label class="checkbox-container"><input type="checkbox"/><div><strong>טיול ערב:</strong> סיור רגוע לאורך טיילת <a class="attr-link-tag" href="https://www.google.com/maps/search/?api=1&query=Yas+Bay+Waterfront+Abu+Dhabi" target="_blank" rel="noopener">Yas Bay 📍</a>.</div></label></div></div>
-<div class="timeline-item"><div class="timeline-time">19:30</div><div class="timeline-content"><label class="checkbox-container"><input type="checkbox"/><div><strong>ארוחת ערב</strong> במלון.</div></label></div></div>
+<div class="timeline-item"><div class="timeline-time">18:30-19:30</div><div class="timeline-content">טיול ערב נעים וקצר עם העגלות לאורך טיילת ה-<a href="https://www.google.com/maps/search/?api=1&amp;query=Yas+Bay+Waterfront+Abu+Dhabi" rel="noopener" target="_blank">Yas Bay</a> המקסימה (נסיעה של 5 דקות בשאטל החינמי או מונית).</div></div>
+<div class="timeline-item"><div class="timeline-time">19:30</div><div class="timeline-content">ארוחת ערב ראשונה במלון <span class="attr-link-tag" onclick="jumpToAttraction('attr-1')">The WB Abu Dhabi</span> והתארגנות לשינה.</div></div>
 </div>
 </div>
-<!-- 3. Day 2 -->
+
+<!-- Day 2 -->
 <div class="section-card" id="day2">
-<h2 class="section-title">📅 יום רביעי, 11.11 | Warner Bros. World</h2>
+<div class="section-title">📅 יום רביעי, 11.11 | עולם הקסם של Warner Bros. World</div>
 <div class="day-timeline">
-<div class="timeline-item"><div class="timeline-time">08:30-09:45</div><div class="timeline-content"><label class="checkbox-container"><input type="checkbox"/><div><strong>ארוחת בוקר</strong> במלון.</div></label></div></div>
-<div class="timeline-item"><div class="timeline-time">10:00-14:00</div><div class="timeline-content"><label class="checkbox-container"><input type="checkbox"/><div><strong>פארק שעשועים:</strong> בילוי ב-<span class="attr-link-tag" onclick="jumpToAttraction('attr-3')">Warner Bros. World Abu Dhabi</span>.</div></label></div></div>
-<div class="timeline-item"><div class="timeline-time">14:00-16:00</div><div class="timeline-content"><label class="checkbox-container"><input type="checkbox"/><div><strong>מנוחת צהריים:</strong> חזרה למלון למנוחה.</div></label></div></div>
+<div class="timeline-item"><div class="timeline-time">08:30-09:45</div><div class="timeline-content">ארוחת בוקר במלון <span class="attr-link-tag" onclick="jumpToAttraction('attr-1')">The WB Abu Dhabi</span> ומפגש בוקר עם הדמויות בלובי.</div></div>
+<div class="timeline-item"><div class="timeline-time">10:00-14:00</div><div class="timeline-content">כניסה לפארק <strong>Warner Bros. World</strong> הממוזג (צמוד למלון במרחק הליכה קצר). בילוי משותף ורגוע בעולם הקטנטנים וחוויית האטרקציות המשפחתיות.</div></div>
+<div class="timeline-item"><div class="timeline-time">14:00-16:00</div><div class="timeline-content">הפסקת צהריים לארוחה קלה וחזרה למנוחת שנ"צ בחדרי המלון הנוחים.</div></div>
 <div class="split-box">
-<div style="font-weight: bold; color: #166534; margin-bottom: 4px;">🔀 פיצול אחה"צ:</div>
-<div>⚡ <strong>אקסטרים:</strong> חזרה לפארק וורנר ברוס (באטמן ורכבות הרים).</div>
-<div>🎈 <strong>רגוע:</strong> ג'ימבורי המלון (Kids Club).</div>
+<div class="split-title">🔀 פיצול חופשי ואטרקציות אחה"צ (16:00-19:00):</div>
+<div class="split-option">⚡ <strong>מי שרוצה יותר אקסטרים:</strong> חוזר לפארק ונהנה מהמתקנים המהירים והמטורפים באזורי גות'האם סיטי ומטרופוליס (באטמן, סופרמן ורכבות ההרים).</div>
+<div class="split-option">🎈 <strong>מי שמעדיף קצב רגוע:</strong> נהנה מחנויות הפארק המעוצבות, מופעי רחוב, או נהנה ב<strong>חדרי המשחקים והג'ימבורי במלון</strong>.</div>
 </div>
-<div class="timeline-item" style="margin-top:10px;"><div class="timeline-time">19:30</div><div class="timeline-content"><label class="checkbox-container"><input type="checkbox"/><div><strong>ארוחת ערב</strong> במלון.</div></label></div></div>
+<div class="timeline-item"><div class="timeline-time">19:30</div><div class="timeline-content">ארוחת ערב משפחתית במלון <span class="attr-link-tag" onclick="jumpToAttraction('attr-1')">The WB Abu Dhabi</span>.</div></div>
 </div>
 </div>
-<!-- 4. Day 3 -->
+
+<!-- Day 3 -->
 <div class="section-card" id="day3">
-<h2 class="section-title">📅 יום חמישי, 12.11 | SeaWorld, שוק התמרים ומסגד שייח' זאיד</h2>
+<div class="section-title">📅 יום חמישי, 12.11 | חיות ים ב-SeaWorld ושוק התמרים האותנטי</div>
 <div class="day-timeline">
-<div class="timeline-item"><div class="timeline-time">08:30-09:30</div><div class="timeline-content"><label class="checkbox-container"><input type="checkbox"/><div><strong>ארוחת בוקר</strong> במלון.</div></label></div></div>
-<div class="timeline-item"><div class="timeline-time">10:00-15:30</div><div class="timeline-content"><label class="checkbox-container"><input type="checkbox"/><div><strong>🐬 פארק ימי:</strong> בילוי ב-<span class="attr-link-tag" onclick="jumpToAttraction('attr-4')">SeaWorld Abu Dhabi</span>.</div></label></div></div>
-<div class="timeline-item"><div class="timeline-time">15:30-16:45</div><div class="timeline-content"><label class="checkbox-container"><input type="checkbox"/><div><strong>🛒 שוק התמרים:</strong> ביקור ב-<span class="attr-link-tag" onclick="jumpToAttraction('attr-8')">Abu Dhabi Dates Market</span> וב-<span class="attr-link-tag" onclick="jumpToAttraction('attr-9')">Mina Market</span>.</div></label></div></div>
-<div class="timeline-item"><div class="timeline-time">17:15-18:30</div><div class="timeline-content"><label class="checkbox-container"><input type="checkbox"/><div><strong>🕌 מסגד:</strong> ביקור ב-<span class="attr-link-tag" onclick="jumpToAttraction('attr-10')">Sheikh Zayed Grand Mosque</span> בשקיעה.</div></label></div></div>
-<div class="timeline-item"><div class="timeline-time">19:15</div><div class="timeline-content"><label class="checkbox-container"><input type="checkbox"/><div><strong>חזרה למלון</strong> וארוחת ערב.</div></label></div></div>
+<div class="timeline-item"><div class="timeline-time">08:30-09:30</div><div class="timeline-content">ארוחת בוקר במלון <span class="attr-link-tag" onclick="jumpToAttraction('attr-1')">The WB Abu Dhabi</span>.</div></div>
+<div class="timeline-item"><div class="timeline-time">10:00-15:30</div><div class="timeline-content">🐬 <strong>חוויה מלאה ומורחבת ב-SeaWorld (5.5 שעות):</strong> בילוי משפחתי רגוע וכיפי באקווריום הגדול בעולם, צפייה במופע אריות הים ובמופע הדולפינים החגיגי, וביקור בעולם הילדים MicroOcean.</div></div>
+<div class="split-box">
+<div class="split-title">🔀 פיצול גמיש בפארק:</div>
+<div class="split-option">🎢 <strong>מי שרוצה יותר אקסטרים:</strong> מנצל את תחילת היום לעלייה מהירה על רכבת ההרים האקסטרימית <strong>Manta Coaster</strong> לסיבוב או שניים.</div>
+<div class="split-option">🐢 <strong>מי שמעדיף קצב רגוע:</strong> מתחיל ישר בסיור המרהיב באקווריום המרכזי "Endless Ocean" ומנהרת הפינגווינים הנגישה לעגלות.</div>
+</div>
+<div class="timeline-item"><div class="timeline-time">15:30-16:45</div><div class="timeline-content">🛒 <strong>נסיעה קצרצרה לנמל וסיור שווקים:</strong> ביקור ב<strong>שוק התמרים המפורסם (Abu Dhabi Dates Market)</strong> וב<strong>שוק הנמל הממוזג (Mina Market)</strong>. חוויה מושלמת להורים עם טעימות תמרים, קפה ערבי וקניית מארזים ומזכרות בזול משמעותית מהקניונים!</div></div>
+<div class="timeline-item"><div class="timeline-time">17:15-18:30</div><div class="timeline-content">ביקור מרהיב ב<strong>מסגד שייח' זאיד הגדול</strong> בדיוק בשעות השקיעה והחלפת התאורה.</div></div>
+<div class="timeline-item"><div class="timeline-time">19:15</div><div class="timeline-content">חזרה למלון וארוחת ערב משפחתית.</div></div>
 </div>
 </div>
-<!-- 5. Day 4 -->
+
+<!-- Day 4 (Friday with Yas Beach) -->
 <div class="section-card" id="day4">
-<h2 class="section-title">📅 יום שישי, 13.11 | חוף הים והיערכות לשבת</h2>
+<div class="section-title">📅 יום שישי, 13.11 | בילוי בחוף הים Yas Beach והיערכות לשבת</div>
 <div class="day-timeline">
-<div class="timeline-item"><div class="timeline-time">08:30-09:30</div><div class="timeline-content"><label class="checkbox-container"><input type="checkbox"/><div><strong>ארוחת בוקר</strong> במלון.</div></label></div></div>
-<div class="timeline-item"><div class="timeline-time">10:00-13:30</div><div class="timeline-content"><label class="checkbox-container"><input type="checkbox"/><div><strong>🏖️ חוף הים:</strong> בילוי ב-<span class="attr-link-tag" onclick="jumpToAttraction('attr-2')">Yas Beach</span> (כניסה חינם לאורחי WB).</div></label></div></div>
-<div class="timeline-item"><div class="timeline-time">13:30-16:00</div><div class="timeline-content"><label class="checkbox-container"><input type="checkbox"/><div><strong>חזרה למלון</strong> ובריכה.</div></label></div></div>
-<div class="timeline-item"><div class="timeline-time">17:21</div><div class="timeline-content"><label class="checkbox-container"><input type="checkbox"/><div><strong>🕯️ כניסת שבת באבו דאבי</strong>.</div></label></div></div>
-<div class="timeline-item"><div class="timeline-time">19:30</div><div class="timeline-content"><label class="checkbox-container"><input type="checkbox"/><div><strong>סעודת שבת</strong> במלון.</div></label></div></div>
+<div class="timeline-item"><div class="timeline-time">08:30-09:30</div><div class="timeline-content">ארוחת בוקר במלון <span class="attr-link-tag" onclick="jumpToAttraction('attr-1')">The WB Abu Dhabi</span>.</div></div>
+<div class="timeline-item"><div class="timeline-time">10:00-13:30</div><div class="timeline-content">🏖️ <strong>בילוי בחוף הים:</strong> ירידה ל-<span class="attr-link-tag" onclick="jumpToAttraction('attr-2')">Yas Beach</span> (כניסה חינם לאורחי המלון כולל שימוש בכיסאות ושמשיות, הגעה קלה בשאטל Yas Express).</div></div>
+<div class="timeline-item"><div class="timeline-time">13:30-16:00</div><div class="timeline-content">חזרה למלון, מקלחות חמות וזמן בריכה רגוע לפני שבת.</div></div>
+<div class="timeline-item"><div class="timeline-time">16:00-17:00</div><div class="timeline-content">התארגנות, מקלחות והלבשה חגיגית לקראת שבת בחדרים.</div></div>
+<div class="timeline-item"><div class="timeline-time">17:21</div><div class="timeline-content">🕯 <strong>כניסת שבת באבו דאבי</strong> (הדלקת נרות בתיאום מול המלון).</div></div>
+<div class="timeline-item"><div class="timeline-time">19:30</div><div class="timeline-content">ארוחת ערב שישי משפחתית וחגיגית בחדר האוכל של המלון.</div></div>
 </div>
 </div>
-<!-- 6. Day 5 -->
+
+<!-- Day 5 (Saturday with Waterworld Split) -->
 <div class="section-card" id="day5">
-<h2 class="section-title">📅 יום שבת, 14.11 | שבת משפחתית, מנוחה ואפשרות לפארק מים</h2>
+<div class="section-title">📅 יום שבת, 14.11 | שבת משפחתית, מנוחה ואפשרות לפארק מים</div>
 <div class="day-timeline">
-<div class="timeline-item"><div class="timeline-time">09:00-10:15</div><div class="timeline-content"><label class="checkbox-container"><input type="checkbox"/><div><strong>ארוחת בוקר</strong> במלון.</div></label></div></div>
-<div class="split-box" style="margin: 10px 0;">
-<div style="font-weight: bold; color: #166534; margin-bottom: 6px;">🔀 פיצול בשבת (התאמה לשומרי שבת):</div>
-<div style="margin-bottom: 4px;">🕌 <strong>סבא וסבתא והשומרים:</strong> מנוחה ושקט במלון <span class="attr-link-tag" onclick="jumpToAttraction('attr-1')">The WB Abu Dhabi</span>.</div>
-<div>🌊 <strong>החלק שרוצה אקסטרים:</strong> בילוי ב-<span class="attr-link-tag" onclick="jumpToAttraction('attr-5')">Yas Waterworld Abu Dhabi</span>.</div>
+<div class="timeline-item"><div class="timeline-time">09:00-10:15</div><div class="timeline-content">ארוחת בוקר רגועה וחגיגית בחדר האוכל של המלון.</div></div>
+<div class="split-box">
+<div class="split-title">🔀 פיצול בשבת (התאמה לשומרי שבת):</div>
+<div class="split-option">🕌 <strong>סבא וסבתא והמעדיפים מנוחה:</strong> שבת שקטה ורגועה במלון <span class="attr-link-tag" onclick="jumpToAttraction('attr-1')">The WB Abu Dhabi</span>, סיורים רגליים במדשאות ומנוחה בחדרים.</div>
+<div class="split-option">🌊 <strong>החלק שרוצה אקסטרים:</strong> בילוי ב-<span class="attr-link-tag" onclick="jumpToAttraction('attr-5')">Yas Waterworld Abu Dhabi</span> (פארק המים המדהים עם מגלשות המהירות).</div>
 </div>
-<div class="timeline-item"><div class="timeline-time">18:14</div><div class="timeline-content"><label class="checkbox-container"><input type="checkbox"/><div><strong>⭐ יציאת שבת באבו דאבי</strong>.</div></label></div></div>
-<div class="timeline-item"><div class="timeline-time">19:30</div><div class="timeline-content"><label class="checkbox-container"><input type="checkbox"/><div><strong>ארוחת ערב</strong> במלון.</div></label></div></div>
+<div class="timeline-item"><div class="timeline-time">13:00-14:30</div><div class="timeline-content">הפסקת צהריים: מנוחה בחדרים או ארוחה קלה מהאספקה שהוכנה מראש.</div></div>
+<div class="timeline-item"><div class="timeline-time">15:00-17:00</div><div class="timeline-content">🎈 <strong>פעילות אחה"צ:</strong> איחוד כוחות בג'ימבורי (Kids Club) או בריכת המלון לאחר חזרת מבקרי פארק המים.</div></div>
+<div class="timeline-item"><div class="timeline-time">18:14</div><div class="timeline-content">⭐ <strong>יציאת שבת באבו דאבי</strong> והבדלה בחדרים.</div></div>
+<div class="timeline-item"><div class="timeline-time">19:30</div><div class="timeline-content">ארוחת ערב חמה בחדר האוכל של המלון.</div></div>
 </div>
 </div>
-<!-- 7. Day 6 -->
+
+<!-- Day 6 -->
 <div class="section-card" id="day6">
-<h2 class="section-title">📅 יום ראשון, 15.11 | Yas Mall ו-Ferrari World</h2>
+<div class="section-title">📅 יום ראשון, 15.11 | שופינג ב-Yas Mall ורכבות הרים בפרארי</div>
 <div class="day-timeline">
-<div class="timeline-item"><div class="timeline-time">09:00-10:00</div><div class="timeline-content"><label class="checkbox-container"><input type="checkbox"/><div><strong>ארוחת בוקר</strong> במלון.</div></label></div></div>
-<div class="timeline-item"><div class="timeline-time">10:30-15:30</div><div class="timeline-content"><label class="checkbox-container"><input type="checkbox"/><div><strong>🏎️ פארק וקניון:</strong> ביקור ב-<span class="attr-link-tag" onclick="jumpToAttraction('attr-6')">Ferrari World</span> וב-<span class="attr-link-tag" onclick="jumpToAttraction('attr-7')">Yas Mall</span>.</div></label></div></div>
-<div class="timeline-item"><div class="timeline-time">19:30</div><div class="timeline-content"><label class="checkbox-container"><input type="checkbox"/><div><strong>ארוחת ערב</strong> במלון.</div></label></div></div>
+<div class="timeline-item"><div class="timeline-time">09:00-10:00</div><div class="timeline-content">ארוחת בוקר במלון <span class="attr-link-tag" onclick="jumpToAttraction('attr-1')">The WB Abu Dhabi</span>.</div></div>
+<div class="timeline-item"><div class="timeline-time">10:30-15:30</div><div class="timeline-content">הגעה למתחם המשולב המחובר של Ferrari World וקניון יאס (5 דקות נסיעה בשאטל).</div></div>
+<div class="split-box">
+<div class="split-title">🔀 פיצול קניון ופארק (11:00-15:30):</div>
+<div class="split-option">🏎 <strong>מי שרוצה יותר אקסטרים:</strong> נכנס לאקסטרים ולרכבות ההרים המהירות בעולם ב-<strong>Ferrari World</strong>.</div>
+<div class="split-option">🛍 <strong>מי שמעדיף קצב רגוע / קניות:</strong> נהנה משופינג חופשי, בתי קפה מעולים וארוחת צהריים משפחתית בקניון הממוזג והענק <strong>Yas Mall</strong>.</div>
+</div>
+<div class="timeline-item"><div class="timeline-time">16:00-19:30</div><div class="timeline-content">חזרה למלון <span class="attr-link-tag" onclick="jumpToAttraction('attr-1')">The WB Abu Dhabi</span> למנוחת אחה"צ, בילוי בג'ימבורי המלון או קפיצה לבריכת המים המעולה.</div></div>
+<div class="timeline-item"><div class="timeline-time">19:30</div><div class="timeline-content">ארוחת ערב מסכמת וחגיגית במלון.</div></div>
 </div>
 </div>
-<!-- 8. Day 7 -->
+
+<!-- Day 7 -->
 <div class="section-card" id="day7">
-<h2 class="section-title">📅 יום שני, 16.11 | ארמון הנשיא, שוק מדינת זאיד וחזרה</h2>
+<div class="section-title">📅 יום שני, 16.11 | ארמון הנשיא, שוק מדינת זאיד הזול וחזרה הביתה</div>
 <div class="day-timeline">
-<div class="timeline-item"><div class="timeline-time">08:30-10:00</div><div class="timeline-content"><label class="checkbox-container"><input type="checkbox"/><div><strong>ארוחת בוקר אחרונה</strong> במלון, לפני היציאה ליום האחרון.</div></label></div></div>
-<div class="timeline-item"><div class="timeline-time">10:30-12:15</div><div class="timeline-content"><label class="checkbox-container"><input type="checkbox"/><div><strong>🏛️ ארמון:</strong> ביקור ב-<span class="attr-link-tag" onclick="jumpToAttraction('attr-11')">Qasr Al Watan</span>.</div></label></div></div>
-<div class="timeline-item"><div class="timeline-time">12:30-14:45</div><div class="timeline-content"><label class="checkbox-container"><input type="checkbox"/><div><strong>🛍️ קניות:</strong> ביקור ב-<span class="attr-link-tag" onclick="jumpToAttraction('attr-12')">Madinat Zayed</span> או ב-<span class="attr-link-tag" onclick="jumpToAttraction('attr-13')">The Galleria</span>.</div></label></div></div>
-<div class="timeline-item"><div class="timeline-time">21:50</div><div class="timeline-content"><label class="checkbox-container"><input type="checkbox"/><div><strong>המראה חזרה לישראל</strong> (EY 593).</div></label></div></div>
+<div class="timeline-item"><div class="timeline-time">08:30-10:00</div><div class="timeline-content">ארוחת בוקר אחרונה במלון <span class="attr-link-tag" onclick="jumpToAttraction('attr-1')">The WB Abu Dhabi</span>, אריזת מזוודות, ביצוע צ'ק-אאוט והשארת המזוודות בשמירת החפצים במלון.</div></div>
+<div class="timeline-item"><div class="timeline-time">10:30-12:15</div><div class="timeline-content">סיור מדהים ונגיש ב<strong>ארמון הנשיא המפואר והממוזג (Qasr Al Watan)</strong> – חוויה ארכיטקטונית ותרבותית מרשימה ביותר להורים ולכל המשפחה.</div></div>
+<div class="split-box">
+<div class="split-title">🔀 פיצול קניות אחרון (12:30-14:45):</div>
+<div class="split-option">🛍 <strong>מי שרוצה שוק אותנטי וזול:</strong> נוסע ל<strong>מרכז הקניות ושוק מדינת זאיד (Madinat Zayed Shopping Centre)</strong> – שוק מקורה ענק וזול בטירוף, מלא בבגדים, צעצועים וקומת זהב (Gold Centre) מדהימה ולא תיירותית למיקוח.</div>
+<div class="split-option">💎 <strong>מי שרוצה קניון מודרני ומותגים:</strong> נוסע לקניון היוקרה המרשים <strong>The Galleria Al Maryah Island</strong> לשופינג מרכזי וארוחת צהריים חופשית במתחם המסעדות המצוין שלו.</div>
+</div>
+<div class="timeline-item"><div class="timeline-time">15:00-18:00</div><div class="timeline-content">חזרה למלון יאס <span class="attr-link-tag" onclick="jumpToAttraction('attr-1')">The WB Abu Dhabi</span>, מנוחה והתרעננות בלובי המפנק או בחדרי המשחקים, ואיסוף המזוודות מהשמירה.</div></div>
+<div class="timeline-item"><div class="timeline-time">18:30</div><div class="timeline-content">נסיעה קצרה (15 דקות) לשדה התעופה של אבו דאבי.</div></div>
+<div class="timeline-item"><div class="timeline-time">21:50</div><div class="timeline-content">המראה חזרה לישראל (נחיתה ב-23:30).</div></div>
 </div>
 </div>
-<!-- 9. Shabbat -->
+
+<!-- Shabbat Info Section -->
 <div class="section-card" id="shabbat-sec">
-<h2 class="section-title">🕌 מידע חשוב והיערכות לשבת</h2>
-<p style="margin-bottom: 8px;">📞 <strong>בית חב"ד איחוד האמירויות:</strong> +971-56-958-2971</p>
-<p>🔹 <strong>מפתח מכני לשבת:</strong> מומלץ לבקש מראש בקבלה של מלון WB.</p>
+<h2 class="section-title">🕌 הערכות מיוחדת לשבת כשרה (מידע חשוב להורים)</h2>
+<div class="list-box">
+<div class="list-item">🔹 <span>קשר עם בית חב"ד:</span> הקהילה היהודית באיחוד האמירויות (בהנהגת הרב לוי דוכמן) זמינה לכל עזרה, אספקת חלות, יין וסעודות שבת כשרות. טלפון ליצירת קשר ותיאום מראש: <strong>971-56-958-2971+</strong>.</div>
+<div class="list-item">🔹 <span>מפתח פיזי לשבת:</span> מומלץ לבקש מצוות הקבלה של מלון <span class="attr-link-tag" onclick="jumpToAttraction('attr-1')">The WB Abu Dhabi</span> כבר בעת הצ'ק-אין (או מספר ימים לפני הגעתכם דרך ההודעות ב-Booking) <strong>מפתח מכני פיזי</strong> לחדרים של ההורים/המשפחה כדי להימנע משימוש בכרטיס אלקטרוני במהלך השבת.</div>
+<div class="list-item">🔹 <span>אוכל כשר ושבתון:</span> התוכנית מותאמת באופן מלא לשהייה נינוחה ביום שבת במלון, עם טיולים רגליים וארוחות קרות/אספקה כשרה בחדר האוכל או בחדרים.</div>
 </div>
-<!-- 10. Attractions Section -->
+</div>
+
+<!-- Attractions Section -->
 <div class="section-card" id="links-sec">
 <h2 class="section-title">📍 אטרקציות ונקודות עניין (כולל Yas Bay)</h2>
 <div class="attractions-list">
@@ -575,12 +617,11 @@
 </div>
 </div>
 <div class="attraction-card" id="attr-2"><div class="attraction-img-placeholder">2. Yas Beach חינם לאורחי WB</div>
-
 <div class="attraction-body">
 <div class="attraction-header-row"><span class="attraction-title">2. Yas Beach <span class="badge">חינם לאורחי WB</span></span><a class="btn-maps" href="https://maps.google.com/?q=Yas+Beach+Abu+Dhabi" target="_blank">ניווט 🗺️</a></div>
 <div class="attraction-snippet">חוף באי יאס עם חול, מים צלולים ואזורי ישיבה – אפשרות ליום רגוע מחוץ לפארקים.</div>
 <button class="toggle-details-btn" onclick="toggleDetails(this)">📖 מידע מלא ▾</button>
-<div class="attraction-details">Yas Beach הוא חוף פנאי באי יאס, עם רצועת חול, מי ים, בריכה, מיטות שיזוף ושירותי חוף. האווירה רגועה יותר מזו של פארקי השעשועים ומתאימה לבילוי של כמה שעות. תנאי הכניסה וההטבות לאורחי מלונות יאס עשויים להשתנות, לכן כדאי לוודא מול המלון לפני ההגעה.</div>
+<div class="attraction-details">Yas Beach הוא חוף פנאי באי יאס, עם רצועת חול, מי ים, בריכה, מיטות שיזוף ושירותי חוף. האווירה רגועה יותר מזו של פארקי השעשועים ומתאימה לבילוי של כמה שעות. כאורחי מלון The WB Abu Dhabi תיהנו מכניסה חינם לחוף ומשירותי החוף שלו.</div>
 </div>
 </div>
 <div class="attraction-card" id="attr-3">
@@ -629,7 +670,6 @@
 </div>
 </div>
 <div class="attraction-card" id="attr-8"><div class="attraction-img-placeholder">8. Abu Dhabi Dates Market</div>
-
 <div class="attraction-body">
 <div class="attraction-header-row"><span class="attraction-title">8. Abu Dhabi Dates Market</span><a class="btn-maps" href="https://maps.google.com/?q=Abu+Dhabi+Dates+Market" target="_blank">ניווט 🗺️</a></div>
 <div class="attraction-snippet">מתחם שוק המתמחה בתמרים ובמוצרים מקומיים – עצירה קצרה לטעימות ולקניות.</div>
@@ -638,7 +678,6 @@
 </div>
 </div>
 <div class="attraction-card" id="attr-9"><div class="attraction-img-placeholder">9. Mina Market</div>
-
 <div class="attraction-body">
 <div class="attraction-header-row"><span class="attraction-title">9. Mina Market</span><a class="btn-maps" href="https://maps.google.com/?q=Mina+Market+Abu+Dhabi" target="_blank">ניווט 🗺️</a></div>
 <div class="attraction-snippet">אזור השווקים ההיסטורי של Mina Zayed, עם שווקי דגים, פירות, ירקות וחנויות מסורתיות.</div>
@@ -665,7 +704,6 @@
 </div>
 </div>
 <div class="attraction-card" id="attr-12"><div class="attraction-img-placeholder">12. שוק מדינת זאיד הזול</div>
-
 <div class="attraction-body">
 <div class="attraction-header-row"><span class="attraction-title">12. שוק מדינת זאיד הזול</span><a class="btn-maps" href="https://maps.google.com/?q=Madinat+Zayed+Shopping+Centre" target="_blank">ניווט 🗺️</a></div>
 <div class="attraction-snippet">מרכז קניות ותיק עם מאות חנויות, ולצדו Gold Centre לתכשיטי זהב ואבני חן.</div>
@@ -679,20 +717,23 @@
 <div class="attraction-header-row"><span class="attraction-title">13. The Galleria Mall</span><a class="btn-maps" href="https://maps.google.com/?q=The+Galleria+Al+Maryah+Island" target="_blank">ניווט 🗺️</a></div>
 <div class="attraction-snippet">קניון יוקרתי ומודרני באי Al Maryah, עם מותגי אופנה, מסעדות ונוף למים.</div>
 <button class="toggle-details-btn" onclick="toggleDetails(this)">📖 מידע מלא ▾</button>
-<div class="attraction-details">The Galleria Al Maryah Island הוא מרכז קניות, אוכל ובילוי מודרני על קו המים. הוא משלב מותגי אופנה בינלאומיים, חנויות יוקרה, מסעדות ובתי קפה, לצד חללים פתוחים ונוף למרינה. מתאים למי שמחפש חוויית קניות מעוצבת יותר או ארוחה באחד מאזורי הבילוי של האי.</div>
+<div class="attraction-details">The Galleria Al Maryah Island הוא מרכז קניות, אוכל ובילוי מודרני על קו המים. הוא משלב מותגי אופנה בינלאומיים, חנויות יוקרה, מסעדות ובתי קפה, לצד חללים פתוחים ונוף למרינה. מתאים למי שמחפש חוויית קניות מעוצבת יותר או ארוחה בא אחד מאזורי הבילוי של האי.</div>
+</div>
+</div>
+<div class="attraction-card"><div class="attraction-body"><div class="attraction-header-row"><div class="attraction-title">Yas Bay Waterfront</div><a class="btn-maps" href="https://www.google.com/maps/search/?api=1&amp;query=Yas+Bay+Waterfront+Abu+Dhabi" rel="noopener" target="_blank">ניווט 🗺️</a></div><div class="attraction-snippet">טיילת נעימה לבילוי ערב, עם מסעדות, בתי קפה ונוף למים.</div></div></div>
 </div>
 </div>
 </div>
-</div>
-</div>
+
 <!-- Bottom Navigation Bar -->
 <div class="bottom-nav">
-    <button class="bottom-nav-btn active" onclick="switchCategory('home')"><span class="icon">🏠</span><span>ראשי</span></button>
-    <button class="bottom-nav-btn" onclick="switchCategory('daily')"><span class="icon">📅</span><span>לו״ז יומי</span></button>
-    <button class="bottom-nav-btn" onclick="switchCategory('flights')"><span class="icon">✈️</span><span>טיסות</span></button>
-    <button class="bottom-nav-btn" onclick="switchCategory('attractions')"><span class="icon">📍</span><span>אטרקציות</span></button>
-    <button class="bottom-nav-btn" onclick="switchCategory('shabbat')"><span class="icon">🕌</span><span>שבת</span></button>
+<button class="bottom-nav-btn active" onclick="switchCategory('home')"><span class="icon">🏠</span><span>ראשי</span></button>
+<button class="bottom-nav-btn" onclick="switchCategory('daily')"><span class="icon">📅</span><span>לו״ז יומי</span></button>
+<button class="bottom-nav-btn" onclick="switchCategory('flights')"><span class="icon">✈️</span><span>טיסות</span></button>
+<button class="bottom-nav-btn" onclick="switchCategory('attractions')"><span class="icon">📍</span><span>אטרקציות</span></button>
+<button class="bottom-nav-btn" onclick="switchCategory('shabbat')"><span class="icon">🕌</span><span>שבת</span></button>
 </div>
+
 <script>
         let currentCategory = 'home';
         function updateTopTabs() {
