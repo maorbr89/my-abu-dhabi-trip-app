@@ -244,7 +244,7 @@
         .attractions-list {
             display: flex;
             flex-direction: column;
-            gap: 14px;
+            gap: 16px;
         }
 
         .attraction-card {
@@ -262,12 +262,12 @@
 
         .attraction-img {
             width: 100%;
-            height: 180px;
+            height: 190px;
             object-fit: cover;
         }
 
         .attraction-body {
-            padding: 12px;
+            padding: 14px;
         }
 
         .attraction-header-row {
@@ -300,16 +300,28 @@
             margin-bottom: 8px;
         }
 
+        .hours-badge {
+            display: inline-block;
+            background: #eff6ff;
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 0.82rem;
+            padding: 3px 8px;
+            border-radius: 6px;
+            margin-bottom: 8px;
+            border: 1px solid #bfdbfe;
+        }
+
         .attraction-details {
             display: none;
             font-size: 0.9rem;
             color: var(--text-main);
             background: #ffffff;
-            padding: 10px;
+            padding: 12px;
             border-radius: 8px;
             border: 1px dashed var(--border);
             margin-top: 8px;
-            line-height: 1.5;
+            line-height: 1.65;
         }
 
         .toggle-details-btn {
@@ -416,17 +428,6 @@
             font-size: 1.1rem;
         }
     
-        .attraction-img-placeholder {
-            height: 160px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 16px;
-            text-align: center;
-            color: #fff;
-            font-weight: 700;
-            background: linear-gradient(135deg, #1e3a8a, #0284c7);
-        }
         #top-tabs { display: flex; }
 
         .timeline-content { line-height: 1.65; }
@@ -496,7 +497,7 @@
 </div>
 </div>
 </div>
-<h3 style="font-size: 1rem; color: #0f172a; margin-bottom: 6px; margin-top: 10px;">💼 חלוקת הגבלות כבודה ומזוודות בקבוצה:</h3>
+<h3 style="font-size: 1rem; color: #0f172a; margin-bottom: 6px; margin-top: 10px;">💼 חלוקת כבודה וזכאות מזוודות:</h3>
 <div class="info-grid">
 <div class="info-item" style="border-right: 4px solid var(--primary-light);">
 <h4>👨‍👩‍👧‍👦 כולם (מבוגרים וילדים)</h4>
@@ -505,9 +506,16 @@
 </div>
 <div class="info-item" style="border-right: 4px solid var(--accent);">
 <h4>👶 תינוק (נועם)</h4>
-<p style="font-size: 0.9rem; margin-top: 4px;">🎒 <strong>כבודת יד (טרולי):</strong> עד 5 ק"ג לאדם</p>
-<p style="font-size: 0.9rem;">🧳 <strong>כבודה רשומה (בבטן המטוס):</strong> עד 10 ק"ג לאדם</p>
+<p style="font-size: 0.9rem; margin-top: 4px;">🎒 <strong>כבודת יד (תיק תינוק):</strong> עד 5 ק"ג</p>
+<p style="font-size: 0.9rem;">🧳 <strong>כבודה רשומה (בבטן המטוס):</strong> עד 10 ק"ג</p>
 </div>
+</div>
+
+<h3 style="font-size: 1rem; color: var(--primary); margin-top: 16px; margin-bottom: 8px;">👶 מדיניות עגלות תינוק וציוד ילדים באתיחאד (Etihad):</h3>
+<div class="list-box">
+<div class="list-item">👶 <strong>זכאות חינמית לכל תינוק/ילד:</strong> ניתן להביא <strong>עגלת תינוק מתקפלת (Stroller/Pushchair) אחת, עריסה (Carrycot) או מושב בטיחות (סל-קל) בחינם לחלוטין</strong>, בנוסף לכבודה הרגילה הרשומה!</div>
+<div class="list-item">🛫 <strong>שימוש בעגלה בשדה ובמטוס:</strong> ניתן להשתמש בעגלה שלכם בשדה התעופה עד ההגעה לשער העלייה למטוס (Gate Check). שם הצוות אוסף את העגלה לבטן המטוס, והיא מוחזרת לכם בפתח שרוול המטוס מיד עם הנחיתה. עגלות מתקפלות קטנות במיוחד (כדוגמת Yoyo) המותאמות לממדי כבודת יד ניתן להעלות לתא המטען מעל המושבים.</div>
+<div class="list-item">🍊 <strong>עגלות טיולון בחינם בשדה באבו דאבי:</strong> בטרמינל A בנמל התעופה הבינלאומי אבו דאבי (Zayed International Airport) עומדות לרשותכם <strong>עגלות טיולון כתומות לשימוש חופשי חינם</strong> בכל רחבי הטרמינל לנוחיותכם!</div>
 </div>
 </div>
 
@@ -537,7 +545,13 @@
 <!-- Weather Online Section -->
 <div class="section-card" id="weather-sec">
 <h2 class="section-title">🌤️ תחזית מזג אוויר (10–16 בנובמבר, אבו דאבי)</h2>
-<p style="font-size:0.88rem; color:var(--text-muted); margin-bottom:12px;">תחזית נובמבר ממוצעת ומעודכנת לאבו דאבי: מזג אוויר מושלם ונעים למשפחות!</p>
+<div class="list-box" style="margin-bottom: 12px; background: #eef2ff; border-color: #c7d2fe;">
+<div style="font-weight: 700; color: var(--primary); margin-bottom: 4px;">🕒 חלוקת שעות היממה בתחזית:</div>
+<div style="font-size: 0.85rem; color: var(--text-main);">
+☀️ <strong>בוקר:</strong> 06:00 – 12:00 | ☀️ <strong>צהריים:</strong> 12:00 – 17:00<br/>
+🌇 <strong>ערב:</strong> 17:00 – 21:00 | 🌙 <strong>לילה:</strong> 21:00 – 06:00
+</div>
+</div>
 
 <div class="weather-card">
 <div class="weather-day-header"><span>שלישי, 10.11</span><span>30°C / 21°C ☀️</span></div>
@@ -681,9 +695,17 @@
 <div class="timeline-item"><div class="timeline-time">08:30-10:00</div><div class="timeline-content">ארוחת בוקר בחדר האוכל של המלון.</div></div>
 <div class="split-box">
 <div class="split-title">🔀 פיצול בשבת (התאמה לשומרי שבת) 10:15-13:30:</div>
-<div class="split-option">🕌 <strong>סבא וסבתא והמעדיפים מנוחה:</strong> שבת שקטה במלון <span class="attr-link-tag" onclick="jumpToAttraction('attr-1')">The WB Abu Dhabi</span>.</div>
+<div class="split-option">🕌 <strong>סבא וסבתא והמעדיפים מנוחה:</strong> שבת שקטה במלון <span class="attr-link-tag" onclick="jumpToAttraction('attr-1')">The WB Abu Dhabi</span>, סיורים רגליים במדשאות ומנוחה בחדרים.</div>
 <div class="split-option">🌊 <strong>החלק שרוצה אקסטרים:</strong> בילוי ב-<span class="attr-link-tag" onclick="jumpToAttraction('attr-5')">Yas Waterworld</span>. <span class="dist-tag">📍 1.2 ק"ג | 3 דקות ב<a href="#" onclick="switchCategory('shuttles'); return false;">שאטל חינם</a> / 10 דקות הליכה</span></div>
 </div>
+
+<div class="hotel-box" style="margin-top: 8px;">
+<div class="hotel-title">💡 המלצות נוספות לבילוי רגוע בתוך המלון ובאי יאס בשבת:</div>
+<div class="split-option">🌳 <strong>טיול רגלי מוצל בוקר/אחה"צ:</strong> הליכה רגלית קלה ונגישה לעגלות בשדרת Warner Bros. Plaza הסמוכה למלון ובמדשאות הירוקות.</div>
+<div class="split-option">🎨 <strong>סדנאות יצירה וקולנוע לילדים:</strong> שימוש חופשי בחדרי ההקרנה לילדים ליד הלובי עם סרטי לוני טונס ודפי צביעה חופשיים.</div>
+<div class="split-option">☕ <strong>זמן קפה ומנוחה להורים:</strong> מנוחה נינוחה במתחם The Overlook בקומה העליונה מול הנוף של אי יאס.</div>
+</div>
+
 <div class="timeline-item"><div class="timeline-time">13:45-18:00</div><div class="timeline-content">🎈 <strong>פעילות אחה"צ:</strong> איחוד כוחות בג'ימבורי (Kids Club) או בריכת המלון.</div></div>
 <div class="timeline-item"><div class="timeline-time">18:14</div><div class="timeline-content">⭐ <strong>יציאת שבת באבו דאבי</strong> והבדלה בחדרים.</div></div>
 <div class="timeline-item"><div class="timeline-time">18:30-20:00</div><div class="timeline-content">ארוחת ערב בחדר האוכל של המלון.</div></div>
@@ -728,7 +750,7 @@
 <div class="section-card" id="shabbat-sec">
 <h2 class="section-title">🕌 הערכות מיוחדת לשבת כשרה (מידע חשוב להורים)</h2>
 <div class="list-box">
-<div class="list-item">🔹 <span>קשר עם בית חב"ד:</span> הקהילה היהודית באיחוד האמירויות (בהנהגת הרב לוי דוכמן) זמינה לכל עזרה, אספקת חלות, יין וסעודות שבת כשרות. טלפון ליצירת קשר ותיאום מראש: <strong>971-56-958-2971+</strong>.</div>
+<div class="list-item">🔹 <span>קשר עם בית חב"ד:</span> הקהילה היהודית באיחוד האמירויות (בהנהגת הרב לוי דוכמן) זמינה לכל עזרה, אספקת חלות, ייין וסעודות שבת כשרות. טלפון ליצירת קשר ותיאום מראש: <strong>971-56-958-2971+</strong>.</div>
 <div class="list-item">🔹 <span>מפתח פיזי לשבת:</span> מומלץ לבקש מצוות הקבלה של מלון <span class="attr-link-tag" onclick="jumpToAttraction('attr-1')">The WB Abu Dhabi</span> כבר בעת הצ'ק-אין <strong>מפתח מכני פיזי</strong> לחדרים.</div>
 <div class="list-item">🔹 <span>אוכל כשר ושבתון:</span> התוכנית מותאמת באופן מלא לשהייה נינוחה ביום שבת במלון, עם טיולים רגליים וארוחות קרות/אספקה כשרה בחדר האוכל או בחדרים.</div>
 </div>
@@ -736,137 +758,162 @@
 
 <!-- Attractions Section -->
 <div class="section-card" id="links-sec">
-<h2 class="section-title">📍 אטרקציות ונקודות עניין (כולל Yas Bay)</h2>
+<h2 class="section-title">📍 אטרקציות ונקודות עניין (כולל שעות פתיחה ותמונות)</h2>
 <div class="attractions-list">
+
 <div class="attraction-card" id="attr-1">
-<img alt="1. The WB Abu Dhabi Hotel" class="attraction-img" loading="lazy" referrerpolicy="no-referrer" src="https://commons.wikimedia.org/wiki/Special:FilePath/The_WB_Abu_Dhabi,_Curio_Collection_By_Hilton_02.jpg"/>
+<img alt="1. The WB Abu Dhabi Hotel" class="attraction-img" loading="lazy" referrerpolicy="no-referrer" src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&amp;fit=crop&amp;w=800&amp;q=80"/>
 <div class="attraction-body">
 <div class="attraction-header-row"><span class="attraction-title">1. The WB Abu Dhabi Hotel</span><a class="btn-maps" href="https://maps.google.com/?q=The+WB+Abu+Dhabi+Hotel" target="_blank">ניווט 🗺️</a></div>
-<div class="attraction-snippet">מלון Warner Bros. הרשמי באי יאס, עם עיצוב בהשראת עולמות הקולנוע והאנימציה.</div>
+<div class="hours-badge">⏰ קבלה פתוחה 24/7 | בריכות: 08:00 – 20:00</div>
+<div class="attraction-snippet">מלון Warner Bros. הרשמי והראשון בעולם מבית Hilton, הממוקם באי יאס ומעוצב כולו בהשראת עולמות הקולנוע והסרטים המצוירים.</div>
 <button class="toggle-details-btn" onclick="toggleDetails(this)">📖 מידע מלא ▾</button>
-<div class="attraction-details">מלון The WB Abu Dhabi הוא מלון 5 כוכבים של רשת Hilton הממוקם מול Warner Bros. World. העיצוב משלב פריטים ודמויות מעולמות Warner Bros.</div>
+<div class="attraction-details">מלון 5 כוכבים יוקרתי המציע חוויה אינטראקטיבית לכל המשפחה. במלון תמצאו בריכות מים גדולות, מתחם מים מיוחד לילדים עם מסך ענק המקרין סרטים מצוירים, מועדון ילדים (Kids Club) עם הפעלות, פגישות יומיות עם דמויות לוני טונס ובאטמן בלובי, ומסעדות מעולות. כל שהייה כוללת גישה חופשית לפארקי הנושא של יאס!</div>
 </div>
 </div>
 
-<div class="attraction-card" id="attr-2"><div class="attraction-img-placeholder">2. Yas Beach חינם לאורחי WB</div>
+<div class="attraction-card" id="attr-2">
+<img alt="2. Yas Beach" class="attraction-img" loading="lazy" referrerpolicy="no-referrer" src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&amp;fit=crop&amp;w=800&amp;q=80"/>
 <div class="attraction-body">
 <div class="attraction-header-row"><span class="attraction-title">2. Yas Beach <span class="badge">חינם לאורחי WB</span></span><a class="btn-maps" href="https://maps.google.com/?q=Yas+Beach+Abu+Dhabi" target="_blank">ניווט 🗺️</a></div>
-<div class="attraction-snippet">חוף באי יאס עם חול, מים צלולים ואזורי ישיבה.</div>
+<div class="hours-badge">⏰ שעות פתיחה: 10:00 – 19:00 מדי יום</div>
+<div class="attraction-snippet">חוף ים פרטי ומרהיב באי יאס עם חול לבן, מים צלולים ורגועים, מיטות שיזוף, שמשיות ומסעדות חוף.</div>
 <button class="toggle-details-btn" onclick="toggleDetails(this)">📖 מידע מלא ▾</button>
-<div class="attraction-details">Yas Beach הוא חוף פנאי באי יאס, עם רצועת חול, מי ים, בריכה, מיטות שיזוף ושירותי חוף. כאורחי מלון The WB Abu Dhabi תיהנו מכניסה חינם.</div>
+<div class="attraction-details">חוף יאס הוא נווה מדבר של רגיעה. המים רדודים ושקטים במיוחד, מה שהופך את החוף לבטוח ומתאים מאוד לפעוטות וילדים. כאורחי מלון The WB Abu Dhabi הכניסה לחוף היא בחינם (יש להציג מפתח חדר או שובר בקבלה), כולל שימוש חופשי במיטות שיזוף ומגבות.</div>
 </div>
 </div>
 
 <div class="attraction-card" id="attr-3">
-<img alt="3. Warner Bros. World" class="attraction-img" loading="lazy" referrerpolicy="no-referrer" src="https://commons.wikimedia.org/wiki/Special:FilePath/Warner_Bros._World_Abu_Dhabi_03.jpg"/>
+<img alt="3. Warner Bros. World" class="attraction-img" loading="lazy" referrerpolicy="no-referrer" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Warner_Bros._World_Abu_Dhabi_03.jpg/1280px-Warner_Bros._World_Abu_Dhabi_03.jpg"/>
 <div class="attraction-body">
 <div class="attraction-header-row"><span class="attraction-title">3. Warner Bros. World</span><a class="btn-maps" href="https://maps.google.com/?q=Warner+Bros+World+Abu+Dhabi" target="_blank">ניווט 🗺️</a></div>
-<div class="attraction-snippet">פארק השעשועים המקורה של Warner Bros.</div>
+<div class="hours-badge">⏰ שעות פתיחה: 11:00 – 19:00 (בסופ"ש עד 20:00)</div>
+<div class="attraction-snippet">פארק השעשועים המקורה והממוזג הגדול בעולם של אולפני וורנר בראזרס עם 29 מתקנים מתקדמים.</div>
 <button class="toggle-details-btn" onclick="toggleDetails(this)">📖 מידע מלא ▾</button>
-<div class="attraction-details">Warner Bros. World Abu Dhabi הוא פארק מקורה וממוזג המחולק לשישה אזורי נושא עם מתקנים, חוויות אינטראקטיביות, מופעים ומפגשים עם דמויות.</div>
+<div class="attraction-details">הפארק מחולק ל-6 עולמות נושא קסומים: Gotham City, Metropolis, Cartoon Junction, Bedrock, Dynamite Gulch ו-Warner Bros. Plaza. המקום ממוזג לחלוטין ומציע מתקני אקסטרים לצד עולמות תוכן מתוקים ורגועים לקטנטנים, מופעי רחוב ומפגשים חיים עם באגס באני, טום וג'רי, סופרמן ובאטמן.</div>
 </div>
 </div>
 
 <div class="attraction-card" id="attr-4">
-<img alt="4. SeaWorld Abu Dhabi" class="attraction-img" loading="lazy" referrerpolicy="no-referrer" src="https://commons.wikimedia.org/wiki/Special:FilePath/Sea_world_yas_island.jpg"/>
+<img alt="4. SeaWorld Abu Dhabi" class="attraction-img" loading="lazy" referrerpolicy="no-referrer" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Sea_world_yas_island.jpg/1280px-Sea_world_yas_island.jpg"/>
 <div class="attraction-body">
 <div class="attraction-header-row"><span class="attraction-title">4. SeaWorld Abu Dhabi</span><a class="btn-maps" href="https://maps.google.com/?q=SeaWorld+Abu+Dhabi" target="_blank">ניווט 🗺️</a></div>
-<div class="attraction-snippet">פארק ימי מקורה המחולק לעולמות נושא, עם אקווריומים ובעלי חיים ימיים.</div>
+<div class="hours-badge">⏰ שעות פתיחה: 10:00 – 18:00 מדי יום</div>
+<div class="attraction-snippet">פארק מים ואקווריום ימי מהגדולים והמתקדמים בתבל, הכולל למעלה מ-100,000 בעלי חיים ימיים.</div>
 <button class="toggle-details-btn" onclick="toggleDetails(this)">📖 מידע מלא ▾</button>
-<div class="attraction-details">SeaWorld Abu Dhabi נמצא באי יאס ונבנה סביב שמונה אזורי חוויה שמציגים סביבות ימיות שונות. האקווריום המרכזי הוא מהגדולים בעולם.</div>
+<div class="attraction-details">סיוורלד אבו דאבי מציע 8 עולמות אוקיינוס מרהיבים: ממעמקי הקוטב הצפוני והפינגווינים ועד האקווריום המרכזי "Endless Ocean" החולש על מיליוני ליטרים של מים. בפארק תיהנו ממופעי דולפינים ואריות ים מרגשים, מגע ישיר עם בעלי חיים, מנהרות זכוכית שקופות ומתקני שעשועים (כולל רכבת Manta Coaster).</div>
 </div>
 </div>
 
 <div class="attraction-card" id="attr-5">
-<img alt="5. Yas Waterworld Abu Dhabi" class="attraction-img" loading="lazy" referrerpolicy="no-referrer" src="https://commons.wikimedia.org/wiki/Special:FilePath/Yas_Waterworld_Abu_Dhabi_2.jpg"/>
+<img alt="5. Yas Waterworld Abu Dhabi" class="attraction-img" loading="lazy" referrerpolicy="no-referrer" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Yas_Waterworld_Abu_Dhabi_2.jpg/1280px-Yas_Waterworld_Abu_Dhabi_2.jpg"/>
 <div class="attraction-body">
 <div class="attraction-header-row"><span class="attraction-title">5. Yas Waterworld Abu Dhabi</span><a class="btn-maps" href="https://maps.google.com/?q=Yas+Waterworld+Abu+Dhabi" target="_blank">ניווט 🗺️</a></div>
-<div class="attraction-snippet">פארק מים בסגנון אמירתי עם מגלשות, בריכות ואטרקציות למשפחות.</div>
+<div class="hours-badge">⏰ שעות פתיחה: 10:00 – 19:00 מדי יום</div>
+<div class="attraction-snippet">פארק מים ענק בסגנון אמירתי מסורתי עם למעלה מ-40 מגלשות, בריכות גלים ומתקני מים משפחתיים.</div>
 <button class="toggle-details-btn" onclick="toggleDetails(this)">📖 מידע מלא ▾</button>
-<div class="attraction-details">Yas Waterworld הוא פארק מים גדול באי יאס עם מגלשות בדרגות אדרנלין שונות, בריכת גלים, נהר רגוע ואזורי משחק לילדים.</div>
+<div class="attraction-details">פארק מים מהטובים במזרח התיכון המעוצב סביב הסיפור העממי של "הפנינה האבודה". הפארק מציע מגוון עצום: החל מנהר אבובים רגוע (Lazy River) ואזורי ספלאש מוצלים לקטנטנים ותינוקות, ועד מגלשות אקסטרים מהירות, בריכת גלים מלאכותית וקולנוע מים ב-5D.</div>
 </div>
 </div>
 
 <div class="attraction-card" id="attr-6">
-<img alt="6. Ferrari World Abu Dhabi" class="attraction-img" loading="lazy" referrerpolicy="no-referrer" src="https://commons.wikimedia.org/wiki/Special:FilePath/Ferrari_World_-_Abu_Dhabi.jpg"/>
+<img alt="6. Ferrari World Abu Dhabi" class="attraction-img" loading="lazy" referrerpolicy="no-referrer" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Ferrari_World_-_Abu_Dhabi.jpg/1280px-Ferrari_World_-_Abu_Dhabi.jpg"/>
 <div class="attraction-body">
 <div class="attraction-header-row"><span class="attraction-title">6. Ferrari World Abu Dhabi</span><a class="btn-maps" href="https://maps.google.com/?q=Ferrari+World+Abu+Dhabi" target="_blank">ניווט 🗺️</a></div>
-<div class="attraction-snippet">פארק בנושא פרארי, עם רכבות הרים, סימולטורים ותצוגות מרוצים.</div>
+<div class="hours-badge">⏰ שעות פתיחה: 11:00 – 20:00 מדי יום</div>
+<div class="attraction-snippet">פארק השעשועים המפורסם בעולם המוקדש למותג פרארי, הכולל את רכבת ההרים המהירה בתבל.</div>
 <button class="toggle-details-btn" onclick="toggleDetails(this)">📖 מידע מלא ▾</button>
-<div class="attraction-details">Ferrari World Abu Dhabi הוא פארק מקורה באי יאס המזוהה עם הגג האדום העצום ורכבות ההרים המהירות בעולם.</div>
+<div class="attraction-details">פארק מקורה ענק המזוהה עם הגג האדום האייקוני. בפארק נמצאת רכבת ההרים Formula Rossa המגיעה למהירות של 240 קמ"ש, לצד סימולטורים מתקדמים של מרוצי פורמולה 1, תצוגות מכוניות יוקרה היסטוריות, ואזור ייעודי לילדים עם רכבות קטנות ומסלולי נהיגה לקטנטנים.</div>
 </div>
 </div>
 
 <div class="attraction-card" id="attr-7">
-<img alt="7. Yas Mall" class="attraction-img" loading="lazy" referrerpolicy="no-referrer" src="https://commons.wikimedia.org/wiki/Special:FilePath/Yas_Mall_Front.jpg"/>
+<img alt="7. Yas Mall" class="attraction-img" loading="lazy" referrerpolicy="no-referrer" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Yas_Mall_Front.jpg/1280px-Yas_Mall_Front.jpg"/>
 <div class="attraction-body">
 <div class="attraction-header-row"><span class="attraction-title">7. Yas Mall</span><a class="btn-maps" href="https://maps.google.com/?q=Yas+Mall+Abu+Dhabi" target="_blank">ניווט 🗺️</a></div>
-<div class="attraction-snippet">קניון מרכזי באי יאס, סמוך לפארקי השעשועים ול-Ferrari World.</div>
+<div class="hours-badge">⏰ שעות פתיחה: 10:00 – 22:00 (בסופ"ש עד 24:00)</div>
+<div class="attraction-snippet">קניון ענק ומפואר המחובר ישירות לפרארי וורלד, עם מאות חנויות מותגים, מסעדות ומתחמי בילוי.</div>
 <button class="toggle-details-btn" onclick="toggleDetails(this)">📖 מידע מלא ▾</button>
-<div class="attraction-details">Yas Mall הוא אחד ממרכזי הקניות והבילוי הגדולים באבו דאבי. מגוון חנויות, מסעדות, בתי קפה ומתחמי משחקים.</div>
+<div class="attraction-details">מרכז הקניות הגדול ביותר באבו דאבי. בקניון מעל 370 חנויות בינלאומיות, מתחם מסעדות עצום (Food Court), בתי קולנוע משוכללים, משחקיות ממוזגות לילדים (Fun Works) ואווירה נעימה וממוזגת למשפחות.</div>
 </div>
 </div>
 
-<div class="attraction-card" id="attr-8"><div class="attraction-img-placeholder">8. Abu Dhabi Dates Market</div>
+<div class="attraction-card" id="attr-8">
+<img alt="8. Abu Dhabi Dates Market" class="attraction-img" loading="lazy" referrerpolicy="no-referrer" src="https://images.unsplash.com/photo-1590080875515-8a3a8dc5735e?auto=format&amp;fit=crop&amp;w=800&amp;q=80"/>
 <div class="attraction-body">
 <div class="attraction-header-row"><span class="attraction-title">8. Abu Dhabi Dates Market</span><a class="btn-maps" href="https://maps.google.com/?q=Abu+Dhabi+Dates+Market" target="_blank">ניווט 🗺️</a></div>
-<div class="attraction-snippet">מתחם שוק המתמחה בתמרים ובמוצרים מקומיים.</div>
+<div class="hours-badge">⏰ שעות פתיחה: 08:00 – 22:00 מדי יום</div>
+<div class="attraction-snippet">שוק התמרים האותנטי והמפורסם של אבו דאבי המציע עשרות זני תמרים, תמרים ממולאים ומארזי מתנה.</div>
 <button class="toggle-details-btn" onclick="toggleDetails(this)">📖 מידע מלא ▾</button>
-<div class="attraction-details">שוק התמרים של אבו דאבי מציע זנים שונים של תמרים, תמרים ממולאים ומארזים מושלמים למתנה.</div>
+<div class="attraction-details">חוויה קולינרית ותרבותית מקומית. בשוק עשרות חנויות המציעות טעימות חופשיות של תמרים טריים ויבשים מכל רחבי האמירויות וסעודיה, תמרים מצופים שוקולד, תמרים ממולאים באגוזים, וקפה ערבי אסלי. המחירים זולים משמעותית מהקניונים והמוכרים אדיבים במיוחד!</div>
 </div>
 </div>
 
-<div class="attraction-card" id="attr-9"><div class="attraction-img-placeholder">9. Mina Market</div>
+<div class="attraction-card" id="attr-9">
+<img alt="9. Mina Market" class="attraction-img" loading="lazy" referrerpolicy="no-referrer" src="https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&amp;fit=crop&amp;w=800&amp;q=80"/>
 <div class="attraction-body">
 <div class="attraction-header-row"><span class="attraction-title">9. Mina Market</span><a class="btn-maps" href="https://maps.google.com/?q=Mina+Market+Abu+Dhabi" target="_blank">ניווט 🗺️</a></div>
-<div class="attraction-snippet">אזור השווקים ההיסטורי של Mina Zayed, עם שווקי דגים ופירות.</div>
+<div class="hours-badge">⏰ שעות פתיחה: 07:00 – 22:00 מדי יום</div>
+<div class="attraction-snippet">אזור השווקים ההיסטורי בנמל מינה זאיד, כולל שוק הדגים, שוק הפירות והירקות ושוק השטיחים.</div>
 <button class="toggle-details-btn" onclick="toggleDetails(this)">📖 מידע מלא ▾</button>
-<div class="attraction-details">אזור Mina Zayed מציג צד אותנטי ומקומי של אבו דאבי בנמל הוותיק.</div>
+<div class="attraction-details">מתחם שווקים פתוח ומקורה המציג את אבו דאבי האותנטית. ביקור בשוק מציע הצצה לחיים המקומיים, שפע פירות טרופיים טריים, מזכרות מסורתיות ואווירת נמל תוססת.</div>
 </div>
 </div>
 
 <div class="attraction-card" id="attr-10">
-<img alt="10. מסגד שייח' זאיד הגדול" class="attraction-img" loading="lazy" referrerpolicy="no-referrer" src="https://commons.wikimedia.org/wiki/Special:FilePath/The_Grand_Mosque-Abu_Dhabi.jpg"/>
+<img alt="10. מסגד שייח' זאיד הגדול" class="attraction-img" loading="lazy" referrerpolicy="no-referrer" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/The_Grand_Mosque-Abu_Dhabi.jpg/1280px-The_Grand_Mosque-Abu_Dhabi.jpg"/>
 <div class="attraction-body">
 <div class="attraction-header-row"><span class="attraction-title">10. מסגד שייח' זאיד הגדול</span><a class="btn-maps" href="https://maps.google.com/?q=Sheikh+Zayed+Grand+Mosque" target="_blank">ניווט 🗺️</a></div>
-<div class="attraction-snippet">אחד המסגדים המרשימים בעולם, המזוהה עם כיפות לבנות ושיש.</div>
+<div class="hours-badge">⏰ שעות פתיחה: 09:00 – 22:00 (שישי: 09:00-12:00 / 15:00-22:00)</div>
+<div class="attraction-snippet">אחד המסגדים הגדולים והמרהיבים בעולם, יצירת מופת ארכיטקטונית של שיש לבן וזהב.</div>
 <button class="toggle-details-btn" onclick="toggleDetails(this)">📖 מידע מלא ▾</button>
-<div class="attraction-details">מסגד שייח׳ זאיד הגדול משלב שיש לבן, נברשות קריסטל מרהיבות, פסיפסים ושטיח עצום.</div>
+<div class="attraction-details">פלא אדריכלי עולמי היכול להכיל מעל 40,000 מתפללים. המסגד כולל 82 כיפות שיש לבנות, נברשות קריסטל סוורובסקי ענקיות מצופות זהב, והשטיח בעבודת יד הגדול בתבל. מומלץ להגיע בשעות השקיעה (17:30–18:30) כדי לראות את מעבר התאורה המרהיב מזהב שקיעה לתאורה כחולה מרהיבה בלילה. יש להקפיד על לבוש צנוע בלבד!</div>
 </div>
 </div>
 
 <div class="attraction-card" id="attr-11">
-<!-- תמונה מרהיבה ואיכותית של ארמון הנשיא Qasr Al Watan -->
+<!-- תמונה מרהיבה, תקינה ופתוחה של ארמון הנשיא Qasr Al Watan -->
 <img alt="11. ארמון הנשיא: Qasr Al Watan" class="attraction-img" loading="lazy" referrerpolicy="no-referrer" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Qasr_Al_Watan_at_dusk.jpg/1280px-Qasr_Al_Watan_at_dusk.jpg"/>
 <div class="attraction-body">
 <div class="attraction-header-row"><span class="attraction-title">11. ארמון הנשיא: Qasr Al Watan</span><a class="btn-maps" href="https://maps.google.com/?q=Qasr+Al+Watan" target="_blank">ניווט 🗺️</a></div>
-<div class="attraction-snippet">ארמון הנשיאות המפואר של איחוד האמירויות, הפתוח למבקרים.</div>
+<div class="hours-badge">⏰ שעות פתיחה: 10:00 – 17:30 מדי יום</div>
+<div class="attraction-snippet">ארמון הנשיאות הפעיל והמפואר של איחוד האמירויות, הפתוח לקהל הרחב כמתחם מורשת ותרבות.</div>
 <button class="toggle-details-btn" onclick="toggleDetails(this)">📖 מידע מלא ▾</button>
-<div class="attraction-details">Qasr Al Watan הוא ארמון נשיאותי פעיל שנפתח לקהל כחוויה תרבותית. המבקרים יכולים להיכנס לאולמות ענק המעוצבים באדריכלות אסלאמית מרהיבה.</div>
+<div class="attraction-details">קאסר אל וואטן הוא מכלול ארכיטקטוני עוצר נשימה. הסיור עובר באולם האסיפות המרכזי "The Great Hall" עם כיפת הענק שלו, אולם המתנות הנשיאותיות, והספרייה הלאומית. המקום ממוזג, נגיש לחלוטין לעגלות וכיסאות גלגלים, ומציע חוויה מעצימה ומרשימה לכל גיל.</div>
 </div>
 </div>
 
-<div class="attraction-card" id="attr-12"><div class="attraction-img-placeholder">12. שוק מדינת זאיד הזול</div>
+<div class="attraction-card" id="attr-12">
+<img alt="12. שוק מדינת זאיד הזול" class="attraction-img" loading="lazy" referrerpolicy="no-referrer" src="https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?auto=format&amp;fit=crop&amp;w=800&amp;q=80"/>
 <div class="attraction-body">
 <div class="attraction-header-row"><span class="attraction-title">12. שוק מדינת זאיד הזול</span><a class="btn-maps" href="https://maps.google.com/?q=Madinat+Zayed+Shopping+Centre" target="_blank">ניווט 🗺️</a></div>
-<div class="attraction-snippet">מרכז קניות ותיק עם מאות חנויות ומתחם Gold Centre.</div>
+<div class="hours-badge">⏰ שעות פתיחה: 09:00 – 23:00 מדי יום</div>
+<div class="attraction-snippet">מרכז קניות ותיק ומקורה עם מאות חנויות מוזלות, ומתחם Gold Centre היוקרתי לתכשיטי זהב.</div>
 <button class="toggle-details-btn" onclick="toggleDetails(this)">📖 מידע מלא ▾</button>
-<div class="attraction-details">Madinat Zayed Shopping Centre מציע חוויית קניות מקומית במחירים נוחים וקומת תכשיטים עשירה.</div>
+<div class="attraction-details">שוק ממוזג וענק במרכז העיר אבו דאבי, המציע ביגוד, הנעלה, צעצועים ומזכרות במחירים נמוכים בהרבה מהקניונים. צמוד אליו נמצא מרכז הזהב עם למעלה מ-70 חנויות תכשיטים מרהיבות.</div>
 </div>
 </div>
 
 <div class="attraction-card" id="attr-13">
-<img alt="13. The Galleria Mall" class="attraction-img" loading="lazy" referrerpolicy="no-referrer" src="https://commons.wikimedia.org/wiki/Special:FilePath/The_Galleria_Al_Maryah_Island,.jpg"/>
+<img alt="13. The Galleria Mall" class="attraction-img" loading="lazy" referrerpolicy="no-referrer" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/The_Galleria_Al_Maryah_Island%2C.jpg/1280px-The_Galleria_Al_Maryah_Island%2C.jpg"/>
 <div class="attraction-body">
 <div class="attraction-header-row"><span class="attraction-title">13. The Galleria Mall</span><a class="btn-maps" href="https://maps.google.com/?q=The+Galleria+Al+Maryah+Island" target="_blank">ניווט 🗺️</a></div>
-<div class="attraction-snippet">קניון יוקרתי ומודרני באי Al Maryah, עם מותגי אופנה ונוף למים.</div>
+<div class="hours-badge">⏰ שעות פתיחה: 10:00 – 22:00 (בסופ"ש עד 24:00)</div>
+<div class="attraction-snippet">קניון היוקרה והבילוי המודרני של אבו דאבי באי אל מריה, המשקיף על המים.</div>
 <button class="toggle-details-btn" onclick="toggleDetails(this)">📖 מידע מלא ▾</button>
-<div class="attraction-details">The Galleria Al Maryah Island הוא מרכז קניות, אוכל ובילוי מודרני על קו המים.</div>
+<div class="attraction-details">קניון יוקרתי ומעוצב בטוב טעם עם מותגי אופנה בינלאומיים, מסעדות שף מעולות, מתחם פארק משחקים על הגג וטיילת מים יפהפייה.</div>
 </div>
 </div>
 
-<div class="attraction-card"><div class="attraction-body"><div class="attraction-header-row"><div class="attraction-title">Yas Bay Waterfront</div><a class="btn-maps" href="https://www.google.com/maps/search/?api=1&amp;query=Yas+Bay+Waterfront+Abu+Dhabi" rel="noopener" target="_blank">ניווט 🗺️</a></div><div class="attraction-snippet">טיילת נעימה לבילוי ערב, עם מסעדות, בתי קפה ונוף למים.</div></div></div>
+<div class="attraction-card">
+<img alt="Yas Bay Waterfront" class="attraction-img" loading="lazy" referrerpolicy="no-referrer" src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&amp;fit=crop&amp;w=800&amp;q=80"/>
+<div class="attraction-body">
+<div class="attraction-header-row"><div class="attraction-title">Yas Bay Waterfront</div><a class="btn-maps" href="https://www.google.com/maps/search/?api=1&amp;query=Yas+Bay+Waterfront+Abu+Dhabi" rel="noopener" target="_blank">ניווט 🗺️</a></div>
+<div class="hours-badge">⏰ פתוח 24/7 (מסעדות וטיילת עד חצות+)</div>
+<div class="attraction-snippet">טיילת מפרץ תוססת ומעוצבת לאורך הים עם עשרות מסעדות, בתי קפה ואווירת ערב קסומה.</div>
 </div>
+</div>
+
 </div>
 </div>
 
