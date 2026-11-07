@@ -482,8 +482,16 @@
 <div class="section-card" id="day1">
 <div class="section-title">📅 יום שלישי, 10.11 | נחיתה, התאקלמות וערב רגוע</div>
 <div class="day-timeline">
+<div class="timeline-item"><div class="timeline-time">06:55</div><div class="timeline-content">המראה מנתב"ג.</div></div>
+<div class="timeline-item"><div class="timeline-time">11:55</div><div class="timeline-content">נחיתה באבו דאבי ונסיעה למלון (כ-15 דקות במונית גדולה).</div></div>
 <div class="timeline-item"><div class="timeline-time">13:15-14:45</div><div class="timeline-content">צ'ק-אין במלון <span class="attr-link-tag" onclick="jumpToAttraction('attr-1')">The WB Abu Dhabi</span>, התארגנות בחדרים וארוחה קלה.</div></div>
 <div class="timeline-item"><div class="timeline-time">15:00-18:00</div><div class="timeline-content">זמן בריכה ראשון וכיפי לכולם בבריכת המלון המשפחתית למנוחה והתרעננות.</div></div>
+<div class="hotel-box">
+<div class="hotel-title">🏰 אטרקציות ופעילויות בתוך המלון:</div>
+<div class="split-option">🔹 <strong>מועדון הקטנטנים (The Overlook / Kids Club):</strong> מתחם ג'ימבורי וחדרי משחקים ממוזגים ומאובזרים עם הפעלות, יצירה ומשחקים דיגיטליים לגילאים השונים.</div>
+<div class="split-option">🔹 <strong>פגישה עם דמויות:</strong> לאורך כל היום מסתובבות בלובי ובשטחי המלון דמויות לוני טונס וגיבורי על (באגס באני, דאפי דאק, באטמן ועוד) שמצטלמות ומפעילות את הילדים.</div>
+<div class="split-option">🔹 <strong>בריכת הילדים ומתחם המים הפעיל:</strong> בריכה חיצונית רדודה וגדולה עם משחקי מים, מזרקות ומסך ענק שמקרין סרטים מצוירים ישירות על המים.</div>
+</div>
 <div class="timeline-item"><div class="timeline-time">19:00-20:30</div><div class="timeline-content">ארוחת ערב ראשונה במלון <span class="attr-link-tag" onclick="jumpToAttraction('attr-1')">The WB Abu Dhabi</span> והתארגנות לשינה.</div></div>
 </div>
 </div>
@@ -589,7 +597,7 @@
 <div class="section-card" id="shabbat-sec">
 <h2 class="section-title">🕌 הערכות מיוחדת לשבת כשרה (מידע חשוב להורים)</h2>
 <div class="list-box">
-<div class="list-item">🔹 <span>קשר עם בית חב"ד:</span> הקהילה היהודית באיחוד האמירויות (בהנהגת הרב לוי דוכמן) זמינה לכל עזרה, אספקת חלות, ייין וסעודות שבת כשרות. טלפון ליצירת קשר ותיאום מראש: <strong>971-56-958-2971+</strong>.</div>
+<div class="list-item">🔹 <span>קשר עם בית חב"ד:</span> הקהילה היהודית באיחוד האמירויות (בהנהגת הרב לוי דוכמן) זמינה לכל עזרה, אספקת חלות, יין וסעודות שבת כשרות. טלפון ליצירת קשר ותיאום מראש: <strong>971-56-958-2971+</strong>.</div>
 <div class="list-item">🔹 <span>מפתח פיזי לשבת:</span> מומלץ לבקש מצוות הקבלה של מלון <span class="attr-link-tag" onclick="jumpToAttraction('attr-1')">The WB Abu Dhabi</span> כבר בעת הצ'ק-אין (או מספר ימים לפני הגעתכם דרך ההודעות ב-Booking) <strong>מפתח מכני פיזי</strong> לחדרים של ההורים/המשפחה כדי להימנע משימוש בכרטיס אלקטרוני במהלך השבת.</div>
 <div class="list-item">🔹 <span>אוכל כשר ושבתון:</span> התוכנית מותאמת באופן מלא לשהייה נינוחה ביום שבת במלון, עם טיולים רגליים וארוחות קרות/אספקה כשרה בחדר האוכל או בחדרים.</div>
 </div>
@@ -728,7 +736,7 @@
 
 <script>
         let currentCategory = 'home';
-        let isNavigatingHistory = false; // דגל למניעת כפילות בעת ניווט היסטוריה
+        let isNavigatingHistory = false;
 
         function updateTopTabs() {
             const tabs = document.getElementById('top-tabs');
@@ -756,7 +764,6 @@
             showSection(section);
             if (category === 'daily') setDayActive('day1');
 
-            // שמירת המצב בהיסטוריית הדפדפן
             if (pushToHistory && !isNavigatingHistory) {
                 history.pushState({ type: 'category', category: category, section: section }, '', '#' + category);
             }
@@ -767,7 +774,6 @@
             showSection(id);
             setDayActive(id);
 
-            // שמירת יום ספציפי בהיסטוריה
             if (pushToHistory && !isNavigatingHistory) {
                 history.pushState({ type: 'day', dayId: id }, '', '#' + id);
             }
@@ -808,7 +814,6 @@
                     }
                     setTimeout(() => card.classList.remove('highlight'), 2500);
 
-                    // שמירת הקפיצה לאטרקציה בהיסטוריית הניווט
                     if (pushToHistory && !isNavigatingHistory) {
                         history.pushState({ type: 'attraction', attrId: attrId }, '', '#' + attrId);
                     }
@@ -816,7 +821,6 @@
             }, 100);
         }
 
-        // האזנה ללחיצה על כפתור "חזור / קדימה" בדפדפן ובמכשיר הנייד
         window.addEventListener('popstate', (event) => {
             isNavigatingHistory = true;
             if (event.state) {
@@ -830,7 +834,6 @@
                     jumpToAttraction(state.attrId, false);
                 }
             } else {
-                // חזרה לברירת המחדל (דף ראשי)
                 switchCategory('home', false);
             }
             isNavigatingHistory = false;
@@ -842,7 +845,6 @@
             updateTopTabs();
             showSection('home-sec');
 
-            // הגדרת מצב התחלתי להיסטוריה
             history.replaceState({ type: 'category', category: 'home', section: 'home-sec' }, '', '#home');
         });
 </script>
